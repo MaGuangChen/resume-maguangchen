@@ -1,0 +1,12 @@
+@import '../components/about-me.scss';
+.about {
+    margin-top: 2rem;
+    min-height: 100vh;
+    text-align: center;
+    font-size: 1.5rem;
+    &_title {
+        margin: 0% 10% 0% 10%;
+        border: 1px solid;
+        padding: 10px;
+    }
+}

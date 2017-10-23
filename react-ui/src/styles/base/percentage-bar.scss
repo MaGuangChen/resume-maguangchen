@@ -1,0 +1,31 @@
+@mixin percent($i){
+    height: .7em;
+    background: #2D2D2D;
+    display: block;
+    @if $i == 1 {
+        width: 85%;
+    }
+    @else if $i == 2 {
+        width: 70%;
+    }
+    @else if $i == 3 {
+        width: 50%;
+    }
+}
+.percentage {
+    position: relative;
+    margin-bottom: 10%;
+    &_bar {
+        height: .7 em;
+        margin: 2% 0;
+        border: .05em solid  #2D2D2D;
+        border-radius: 2px;
+        display: block;
+        text-align: center;
+        @for $i from 1 through 3 {
+            .percentage_bar_#{$i} {
+              @include percent($i);
+            }
+        }
+    }
+}

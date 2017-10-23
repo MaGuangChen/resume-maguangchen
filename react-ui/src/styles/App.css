@@ -78,8 +78,60 @@
   100% {
     opacity: 1; } }
 
+.percentage {
+  position: relative;
+  margin-bottom: 10%; }
+  .percentage_bar {
+    height: .7 em;
+    margin: 2% 0;
+    border: .05em solid  #2D2D2D;
+    border-radius: 2px;
+    display: block;
+    text-align: center; }
+    .percentage_bar .percentage_bar_1 {
+      height: .7em;
+      background: #2D2D2D;
+      display: block;
+      width: 85%; }
+    .percentage_bar .percentage_bar_2 {
+      height: .7em;
+      background: #2D2D2D;
+      display: block;
+      width: 70%; }
+    .percentage_bar .percentage_bar_3 {
+      height: .7em;
+      background: #2D2D2D;
+      display: block;
+      width: 50%; }
+
+.about-me {
+  margin: 0% 10% 0% 10%;
+  border: 1px solid;
+  border-top: none; }
+  .about-me_photo {
+    padding: 1rem;
+    display: block;
+    margin: 0 auto;
+    width: 180px;
+    height: auto;
+    border-radius: 180px; }
+  .about-me_content {
+    padding: 2rem;
+    line-height: 2.5rem; }
+
+.about {
+  margin-top: 2rem;
+  min-height: 100vh;
+  text-align: center;
+  font-size: 1.5rem; }
+  .about_title {
+    margin: 0% 10% 0% 10%;
+    border: 1px solid;
+    padding: 10px; }
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background: #EDEEEF; }
+  background: #EDEEEF;
+  color: #696969; }

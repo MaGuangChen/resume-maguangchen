@@ -1,5 +1,4 @@
 import React from 'react';
-import blueCode from '../images/blue-code.png';
 
 const Intro = () => {
     const paperPlane = {
