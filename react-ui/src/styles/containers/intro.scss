@@ -1,0 +1,69 @@
+.front {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    background: url('../images/laptop.jpg')no-repeat center;
+    background-size: cover;
+    text-align: center;
+    &_logo {
+      background: rgba(105,105,105,0.9);
+      color: white;
+      top: 45%;
+      padding: 3rem;
+      position: absolute;
+      display: block;
+      z-index: 1;
+      animation: onLoad 2s cubic-bezier(0.4, 0.02, 0.57, 0.82);
+      h1 {
+          font-size: 3rem;
+      }
+      p {
+          font-weight: 300;
+      }
+      a {
+          color: white;
+          cursor: pointer;
+      }
+    }
+  }
+  @media screen and (min-width: 375px) and (max-width: 768px) {
+    .front {
+      &_logo {
+        top: 20%;
+        width: 100%;
+        background: rgba(105,105,105,0.7);
+      }
+      .sub-button {
+      margin-top: 1rem;
+      display: block;
+      }
+    }
+  }
+  @media screen and (min-width: 320px) and (max-width: 374px) {
+   .front {
+      &_logo {
+        top: 20%;
+        width: 100%;
+        background: rgba(105,105,105,0.7);
+      }
+      .main-button {
+        position: relative;
+        display: block;
+        margin-top: 1rem;
+      }
+      .sub-button {
+        margin-top: 1rem;
+        display: block;
+      }
+    }
+  }
+  @keyframes onLoad {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }

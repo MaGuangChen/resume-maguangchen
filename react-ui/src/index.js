@@ -8,7 +8,6 @@ import ApolloClient from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
 
 import App from './App';
-import './index.css';
 
 
 let store = configure();
