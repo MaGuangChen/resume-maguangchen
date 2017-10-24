@@ -1,0 +1,110 @@
+.circle-percentage {
+    width: 40%;
+    height: 20vh;
+    position: relative;
+    margin: 1rem;
+    display: inline-block;
+    &_circle {
+        width: 10rem;
+        height: 10rem;
+    }
+    &_svg {
+        position: relative;
+        bottom: 20vh;
+        padding: 10px;
+        &_lg {
+            width: 10rem;
+        }
+        &_l {
+            width: 9.3rem;
+        }
+        &_m {
+            width: 7.5rem;
+        }
+        &_s {
+            width: 7rem;
+        }
+        &_xs {
+            width: 5rem;
+            height: 16vh;
+        }
+        &_customSize {
+            width: 8rem;
+            height: 16vh;
+        }
+    }
+    &_text {
+        position: relative;
+        bottom: 21vh;
+    }
+}
+
+@media screen and (min-width: 375px) and (max-width:  413px) {
+    .circle-percentage {
+        &_circle {
+            width: 10rem;
+            height: 10rem;
+        }
+        &_svg {
+            bottom: 18vh;
+            padding: 10px 10px 10px 13px;
+            &_customSize {
+                width: 8rem;
+                height: 14vh;
+            }
+            &_xs {
+                width: 5rem;
+                height: 14vh;
+            }
+        }
+        &_text {
+            bottom: 19vh;
+        }
+    }
+}
+@media screen and (min-width: 414px) and (max-width:  500px) {
+    .circle-percentage {
+        &_svg {
+            bottom: 16.5vh;
+            padding: 10px;
+            &_customSize {
+                width: 8rem;
+                height: 13vh;
+            }
+            &_xs {
+                width: 7rem;
+                height: 13.5vh;
+            }
+        }
+        &_text {
+            bottom: 18vh;
+        }
+    }
+}
+@media screen and (min-width: 501px) {
+    .circle-percentage {
+        width: 20%;
+        &_svg {
+            bottom: 20vh;
+            padding: 10px;
+            &_customSize {
+                width: 8rem;
+                height: 13vh;
+            }
+            &_s {
+                width: 6.8rem; 
+            }
+            &_xs {
+                width: 10rem;
+                height: 16vh;
+            }
+            &_customSize {
+                width: 10rem;
+                height: 16vh;
+            }
+        }
+        &_text {
+            bottom: 21vh;
+        }
+    }
+}

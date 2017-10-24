@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import headPhoto from '../../images/maguangchen.jpg';
 
 const AboutMe = () => {
