@@ -1,7 +1,7 @@
-export const changeHoverStatusReducer = (state = 'skill', action) => {
+export const changeAboutSectionReducer = (state = 'aboutMe', action) => {
     switch(action.type) {
-      case 'CHANGE_HOVER' :
-        return action.status;
+      case 'CHANGE_ABOUT' :
+        return action.section;
       default :
         return state;
     }

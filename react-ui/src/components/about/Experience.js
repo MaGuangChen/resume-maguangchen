@@ -26,7 +26,7 @@ const Experience = () => {
           <div className="timeline-content">
             <h3>中央大學<br/>電子商務競賽</h3>
             <span>全國第三名</span>
-            <p>由於任職的新創公司同事都為中央校友或學生，因此與他們一起於中央大學主辦的電子商務競賽製作prototype並比賽。</p>
+            <p>由於任職的新創公司同事都為中央校友或學生，因此與他們一起於中央大學主辦的電子商務競賽製作prototype並比賽</p>
           </div>
         </div>
 

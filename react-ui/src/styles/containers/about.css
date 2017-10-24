@@ -232,3 +232,13 @@
     margin: 0% 10% 0% 10%;
     border: 1px solid;
     padding: 10px; }
+    .about_title:hover {
+      position: relative;
+      background: #513DDC;
+      color: white;
+      bottom: 3px;
+      box-shadow: 3px 3px 5px #696969; }
+    .about_title_active {
+      background: #FF0279;
+      color: white;
+      border: 1px solid #696969; }

@@ -1,6 +1,6 @@
-export const changeHover = (status) => {
+export const changeAbout = (section) => {
 	return {
-		type: 'CHANGE_HOVER',
-		status
+		type: 'CHANGE_ABOUT',
+		section
 	}
 }
