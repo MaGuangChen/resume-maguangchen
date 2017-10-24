@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import AboutMe from '../components/about/AboutMe';
 import Skill from '../components/about/Skill';
+import Experience from '../components/about/Experience';
 
 const About = () => {
     return (
@@ -12,6 +13,7 @@ const About = () => {
           <p className="about_title">Skill</p>
           <Skill />
           <p className="about_title">Experience</p>
+          <Experience />
         </div>
     )
 }
