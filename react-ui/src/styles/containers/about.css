@@ -129,7 +129,8 @@
   .about_title {
     margin: 0% 10% 0% 10%;
     border: 1px solid;
-    padding: 10px; }
+    padding: 10px;
+    cursor: pointer; }
     .about_title:hover {
       position: relative;
       background: #513DDC;

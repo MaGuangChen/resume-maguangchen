@@ -1,0 +1,70 @@
+.contact {
+    text-align: center;
+    margin: 3rem 0 5rem 0;
+    &_title {
+        font-size: 3.5rem;
+    }
+    &_input {
+        input {
+            border-radius: 0px;
+            background: none;
+            border: none;
+            border-bottom: 2px solid;
+            margin: 0 0 2rem 1.5rem;
+            padding: 20px;
+            &:focus {
+                outline: none;
+                border-bottom: 3px solid #3429AB;  
+            }
+        }
+        label {
+            display: block;
+            margin: 5rem 0 1.5rem 1rem;
+        }
+        span {
+            margin: 0 0 2rem 1.5rem;    
+            border: 1px solid;
+            border-radius: 25px;
+            padding: 15px;
+            cursor: pointer;
+            &:hover {
+                background: #3429AB;
+                color: white;
+                box-shadow: 0 0 10px 3px #696969;
+            }
+        }
+        p {
+            display: inline;
+            margin: 0 1rem 0 1rem;
+        }
+        &_timeNsalary {
+            margin-top: 3rem;
+            width: 100%;
+            &_salary{
+                background: #DCDCDC;
+                padding: 20px;
+                margin: 0 25% 0 25%;
+                border-radius: 25px;
+                i {
+                    margin-bottom: 1rem;
+                }
+                &_range {
+                    margin: 1rem 0 0 0;
+                }
+            }
+        }
+        &_submit {
+            margin: 4rem 35% 0 35%;
+            border: 2px solid #696969;
+            padding: 10px;
+            border-radius: 25px;
+            font-size: 2rem;
+            cursor: pointer;
+            &:hover {
+                background: #3429AB;
+                color: white;
+                box-shadow: 0 0 10px 3px #696969;
+            }
+        }
+    }
+}
