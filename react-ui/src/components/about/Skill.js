@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Percentage from './Percentage';
-import CirclePercentage from './CirclePercentage';
 
 import react from '../../images/react.svg';
 import redux from '../../images/redux.svg';
@@ -9,7 +8,6 @@ import scss from '../../images/scss.svg';
 import graphQL from '../../images/graphQL.svg';
 import webpack from '../../images/webpack.svg';
 import node from '../../images/node.svg';
-import expressImg from '../../images/express.svg';
 import mongoDB from '../../images/mongoDB.svg';
 import firebase from '../../images/firebase.svg';
 
@@ -49,7 +47,7 @@ const Skill = () => {
               alt="graphql-svg"
               percentage={85}
               backgroundColor="#E535AB"
-              imgSize="s"
+              imgSize="m"
             />
             <Percentage 
               title="Webpack"
@@ -60,11 +58,27 @@ const Skill = () => {
               imgSize="s"
             />
             <Percentage 
-              title="Node"
+              title="Node & Express"
               img={node}
               alt="node-svg"
               percentage={70}
               backgroundColor="#8CC84B"
+              imgSize="s"
+            />
+            <Percentage 
+              title="Mongoose"
+              img={mongoDB}
+              alt="mongoDB-svg"
+              percentage={70}
+              backgroundColor="#75AD5B"
+              imgSize="lg"
+            />
+            <Percentage 
+              title="Firebase"
+              img={firebase}
+              alt="firebase-svg"
+              percentage={70}
+              backgroundColor="#FCCA3F"
               imgSize="s"
             />
         </div>

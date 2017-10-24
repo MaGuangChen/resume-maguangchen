@@ -1,7 +1,7 @@
 .percentage {
     width: 40%;
     position: relative;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
     display: inline-block;
     font-size: 0.5rem;
     margin-right: 1rem;
@@ -14,7 +14,7 @@
             &_lg {
                 position: relative;
                 width: 5rem;
-                height: 5rem;
+                height: 3.5rem;
             }
             &_m {
                 position: relative;
@@ -24,13 +24,12 @@
             &_s {
                 position: relative;
                 width: 3rem;
-                height: 3rem;
+                height: 3.5rem;
             }
         }
     }
     &_bar {
         height: .7 em;
-        margin: 2% 0;
         border-radius: 2px;
         display: block;
         text-align: center;
