@@ -7,26 +7,46 @@
     font-size: 3.5rem; }
   .portifolio_block {
     box-shadow: 0 0 20px 3px #696969;
-    margin: 2rem 10% 0 10%; }
+    margin: 2rem 10% 2rem 10%; }
     .portifolio_block_left {
       display: inline-block;
       border: 0.5px solid white;
       height: 150px;
       width: 50%;
+      cursor: pointer;
       height: 300px;
       margin: 0% 50% 0% 0%;
       background: url("../images/settour-new.png") center no-repeat;
       background-size: cover; }
+      .portifolio_block_left:hover {
+        box-shadow: 0 0 30px 10px #696969;
+        bottom: 1rem;
+        border: none; }
+        .portifolio_block_left:hover p {
+          background-color: rgba(0, 0, 0, 0.2); }
       .portifolio_block_left a {
         position: relative;
-        top: 50%;
-        left: 10%;
-        color: white; }
+        top: 50px;
+        padding: 0 5% 0% 5%;
+        color: white;
+        font-size: 2rem;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        text-shadow: 0 0 5px rgba(0, 0, 0, 0.9); }
+        .portifolio_block_left a:nth-child(2) {
+          display: block;
+          top: 50%;
+          position: relative;
+          font-size: 1rem;
+          font-weight: 300; }
       .portifolio_block_left p {
         text-align: left;
         position: relative;
-        background-color: rgba(0, 0, 0, 0.2);
+        background-color: rgba(0, 0, 0, 0.4);
         height: 100%; }
+      .portifolio_block_left a {
+        top: 120px; }
     .portifolio_block_right {
       margin: -300px 0 10% 50%;
       width: 50%; }
@@ -34,14 +54,45 @@
         display: inline-block;
         border: 0.5px solid white;
         height: 150px;
-        width: 50%; }
+        width: 50%;
+        cursor: pointer; }
+        .portifolio_block_right div:hover {
+          box-shadow: 0 0 30px 10px #696969;
+          bottom: 1rem;
+          border: none; }
+          .portifolio_block_right div:hover p {
+            background-color: rgba(0, 0, 0, 0.2); }
         .portifolio_block_right div a {
           position: relative;
-          top: 50%;
-          left: 10%;
-          color: white; }
+          top: 50px;
+          padding: 0 5% 0% 5%;
+          color: white;
+          font-size: 2rem;
+          font-weight: 600;
+          cursor: pointer;
+          text-decoration: none;
+          text-shadow: 0 0 5px rgba(0, 0, 0, 0.9); }
+          .portifolio_block_right div a:nth-child(2) {
+            display: block;
+            top: 50%;
+            position: relative;
+            font-size: 1rem;
+            font-weight: 300; }
         .portifolio_block_right div p {
           text-align: left;
           position: relative;
-          background-color: rgba(0, 0, 0, 0.2);
+          background-color: rgba(0, 0, 0, 0.4);
           height: 100%; }
+
+@media screen and (max-width: 700px) {
+  .portifolio_block_left {
+    height: 200px;
+    width: 100%; }
+  .portifolio_block a {
+    top: 50px;
+    margin-bottom: 1rem; }
+    .portifolio_block a:nth-child(2) {
+      top: 45%; }
+  .portifolio_block_right {
+    width: 100%;
+    margin: 0px 0 0% 0%; } }
