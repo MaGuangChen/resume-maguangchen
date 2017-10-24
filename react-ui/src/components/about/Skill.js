@@ -59,6 +59,14 @@ const Skill = () => {
               backgroundColor="#6F95DB"
               imgSize="s"
             />
+            <Percentage 
+              title="Node"
+              img={node}
+              alt="node-svg"
+              percentage={70}
+              backgroundColor="#8CC84B"
+              imgSize="s"
+            />
         </div>
     )
 }
