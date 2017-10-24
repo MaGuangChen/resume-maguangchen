@@ -14,6 +14,7 @@
     position: absolute;
     display: block;
     z-index: 1;
+    padding: 10px;
     animation: onLoad 2s cubic-bezier(0.4, 0.02, 0.57, 0.82); }
     .front_logo h1 {
       font-size: 3rem; }
