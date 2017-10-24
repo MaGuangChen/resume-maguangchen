@@ -25,7 +25,7 @@ const ContactInput = (props) => {
                 <input type="text" name="name" placeholder="創建密碼" />
             </div>
             <label>*您方便的面試時間與預計的薪水區間</label>
-            <div className="timeNsalary">
+            <div className="contact_input_timeNsalary">
                 <i className="fa fa-calendar-check-o fa-2x" aria-hidden="true"></i>
                 <span>2017-10-25 星期三</span>
             </div>
@@ -38,7 +38,7 @@ const ContactInput = (props) => {
                />
             </div>
             <div className="contact_input_submit">
-              確認提交
+              確認提交<i className="fa fa-paper-plane-o" aria-hidden="true"></i>
             </div>
         </div>
     )

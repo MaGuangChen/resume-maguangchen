@@ -34,7 +34,7 @@ export default class PriceSlider extends Component {
      num = num.replace(pattern, "$1,$2");
      
     }
-    return `$${num} NT`
+    return `$${num}`
   }
 
   onSliderChange = (value) => {
@@ -52,7 +52,10 @@ export default class PriceSlider extends Component {
 
     return (
       <div className="contact_input_timeNsalary_salary">
+        <div className="contact_input_timeNsalary_salary_title">
         <i className="fa fa-usd fa-2x" aria-hidden="true"></i>
+        <p>NT</p>
+        </div>
         <div>
           <p>{this.parseStr2Money(this.state.lowerValue)}</p>
           <p>~</p>

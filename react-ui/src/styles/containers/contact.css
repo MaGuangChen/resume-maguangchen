@@ -41,6 +41,8 @@
         margin-bottom: 1rem; }
       .contact_input_timeNsalary_salary_range {
         margin: 1rem 0 0 0; }
+      .contact_input_timeNsalary_salary_title p {
+        font-size: 2.5rem; }
   .contact_input_submit {
     margin: 4rem 35% 0 35%;
     border: 2px solid #696969;
