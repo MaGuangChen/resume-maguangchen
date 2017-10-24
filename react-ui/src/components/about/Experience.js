@@ -2,7 +2,7 @@ import React from 'react';
 
 const Experience = () => {
 	return (
-      <div className="container-exe">
+      <div className="experience">
         <div className="timeline-block timeline-block-left">
           <div className="marker"></div>
           <div className="timeline-content">
