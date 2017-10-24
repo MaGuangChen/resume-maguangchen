@@ -58,7 +58,7 @@ const Skill = () => {
               imgSize="s"
             />
             <Percentage 
-              title="Node & Express"
+              title="Node"
               img={node}
               alt="node-svg"
               percentage={70}

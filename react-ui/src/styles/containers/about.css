@@ -44,6 +44,14 @@
       height: .7em;
       display: block; }
 
+@media screen and (min-width: 375px) and (max-width: 500px) {
+  .percentage_title_img_lg {
+    width: 3rem; }
+  .percentage_title_img_m {
+    width: 2.5rem; }
+  .percentage_title_img_s {
+    width: 2rem; } }
+
 .skill {
   margin: 0% 10% 0% 10%;
   border: 1px solid;

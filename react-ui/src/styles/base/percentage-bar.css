@@ -28,3 +28,11 @@
     .percentage_bar_percent {
       height: .7em;
       display: block; }
+
+@media screen and (min-width: 375px) and (max-width: 500px) {
+  .percentage_title_img_lg {
+    width: 3rem; }
+  .percentage_title_img_m {
+    width: 2.5rem; }
+  .percentage_title_img_s {
+    width: 2rem; } }

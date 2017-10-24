@@ -39,3 +39,21 @@
         }
     }
 }
+
+@media screen and (min-width: 375px) and (max-width:  500px) {
+    .percentage {
+        &_title {
+            &_img {
+                &_lg {
+                    width: 3rem;
+                }
+                &_m {
+                    width: 2.5rem;
+                }
+                &_s {
+                    width: 2rem;
+                }
+            }
+        }
+    }
+}    
