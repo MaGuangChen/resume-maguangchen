@@ -66,7 +66,7 @@ const Skill = () => {
               imgSize="s"
             />
             <Percentage 
-              title="Mongoose"
+              title="mLab"
               img={mongoDB}
               alt="mongoDB-svg"
               percentage={70}

@@ -1,0 +1,45 @@
+@mixin galleryContent(){
+    display: inline-block;
+    border: 0.5px solid white;
+    height: 150px;
+    width: 50%;
+    a{
+        position: relative;
+        top: 50%;
+        left: 10%;
+        color: white;
+    }
+    p {
+        text-align: left;
+        position: relative;
+        background-color: rgba(0, 0, 0, 0.2);
+        height: 100%;
+    }
+}
+.portifolio {
+    background: white;
+    text-align: center;
+    padding: 20px 0px 20px 0px;
+    &_title {
+        position: relative;
+        font-size: 3.5rem;
+    }
+    &_block {
+        box-shadow: 0 0 20px 3px #696969;
+        margin: 2rem 10% 0 10%;
+        &_left {
+            @include galleryContent();
+            height: 300px;
+            margin: 0% 50% 0% 0%;
+            background: url('../images/settour-new.png')center no-repeat;
+            background-size: cover;
+        }
+        &_right {
+            margin: -300px 0 10% 50%;
+            width: 50%;
+            div {
+                @include galleryContent();
+            }
+        }
+    }
+}

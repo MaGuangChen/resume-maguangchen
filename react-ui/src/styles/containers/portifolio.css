@@ -1,0 +1,47 @@
+.portifolio {
+  background: white;
+  text-align: center;
+  padding: 20px 0px 20px 0px; }
+  .portifolio_title {
+    position: relative;
+    font-size: 3.5rem; }
+  .portifolio_block {
+    box-shadow: 0 0 20px 3px #696969;
+    margin: 2rem 10% 0 10%; }
+    .portifolio_block_left {
+      display: inline-block;
+      border: 0.5px solid white;
+      height: 150px;
+      width: 50%;
+      height: 300px;
+      margin: 0% 50% 0% 0%;
+      background: url("../images/settour-new.png") center no-repeat;
+      background-size: cover; }
+      .portifolio_block_left a {
+        position: relative;
+        top: 50%;
+        left: 10%;
+        color: white; }
+      .portifolio_block_left p {
+        text-align: left;
+        position: relative;
+        background-color: rgba(0, 0, 0, 0.2);
+        height: 100%; }
+    .portifolio_block_right {
+      margin: -300px 0 10% 50%;
+      width: 50%; }
+      .portifolio_block_right div {
+        display: inline-block;
+        border: 0.5px solid white;
+        height: 150px;
+        width: 50%; }
+        .portifolio_block_right div a {
+          position: relative;
+          top: 50%;
+          left: 10%;
+          color: white; }
+        .portifolio_block_right div p {
+          text-align: left;
+          position: relative;
+          background-color: rgba(0, 0, 0, 0.2);
+          height: 100%; }
