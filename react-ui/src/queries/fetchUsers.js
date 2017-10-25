@@ -6,7 +6,7 @@ export default gql`
             id
             acount
             password
-            companies{
+            company{
                 id
                 name
                 position

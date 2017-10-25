@@ -18,7 +18,7 @@ const UserType = new GraphQLObjectType({
     id: { type: GraphQLID },
     acount: { type: GraphQLString },
     password: { type: GraphQLString },
-    companies: {
+    company: {
       type: new GraphQLList(CompanyType),
       resolve(parentValue) {
         return user.findCompany(parentValue.id);

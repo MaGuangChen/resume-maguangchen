@@ -24,10 +24,10 @@ const CompanySchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'user'
     },
-    company: [{
-		type: Schema.Types.ObjectId,
-		ref: 'company'
-	}],
+    // company: [{
+	// 	type: Schema.Types.ObjectId,
+	// 	ref: 'company'
+	// }],
 });
 
 mongoose.model('company', CompanySchema);
