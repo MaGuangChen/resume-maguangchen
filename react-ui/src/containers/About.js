@@ -21,6 +21,7 @@ const About = (props) => {
     : 'about_title';
     
     return (
+      <div id="to-about">
         <div className="about">
           <p onClick={() => {
               dispatch(changeAbout('aboutMe'));
@@ -35,6 +36,7 @@ const About = (props) => {
           }} className={experienceActive}>Experience</p>
           { aboutSection === 'experience' && <Experience /> }
         </div>
+      </div>
     )
 }
 export default connect((state) => {

@@ -14,8 +14,8 @@ const Intro = () => {
             <p>此履歷專案使用以下技術:<br/>
              react、router、redux、graphQL、webpack、express、mongoose</p>
             <br/>
-            <a href="/" className="main-button">與我聯絡<i style={paperPlane} className="fa fa-paper-plane-o" aria-hidden="true"></i></a>
-            <a className="sub-button">或是繼續看履歷</a>
+            <a href="#to-contact" className="main-button">與我聯絡<i style={paperPlane} className="fa fa-paper-plane-o" aria-hidden="true"></i></a>
+            <a href="#to-about" className="sub-button">或是繼續看履歷</a>
             <div className="scroll-down"><i className="fa fa-angle-down" aria-hidden="true"></i></div>
           </div>
         </header>

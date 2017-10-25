@@ -5,6 +5,7 @@ import ContactInput from '../components/contact/ContactInput';
 
 const Contact = (props) => {
     return (
+      <div id="to-contact">
         <div className="contact">
             <p className="contact_title">Contact</p>
             <p>我的聯絡資訊:</p>
@@ -12,6 +13,7 @@ const Contact = (props) => {
             <p>手機: 0915791122</p>
             <ContactInput />
         </div>
+      </div>
     )
 }
 

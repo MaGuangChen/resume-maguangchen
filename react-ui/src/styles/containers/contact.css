@@ -110,6 +110,13 @@
         color: white; }
     .calendar_date-area .before-or-not-this-month {
       color: darkgray; }
+    .calendar_date-area .before-this-date {
+      cursor: not-allowed;
+      color: darkgray; }
+      .calendar_date-area .before-this-date:hover {
+        background: #EDEEEF;
+        cursor: not-allowed;
+        color: darkgray; }
     .calendar_date-area .selected-date {
       background: #FF0279;
       color: white; }
