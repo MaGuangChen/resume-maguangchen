@@ -5,8 +5,7 @@ export default gql`
         user {
             id
             acount
-            company
-            position
+            password
         }
     }
 `;

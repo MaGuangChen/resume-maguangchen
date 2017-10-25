@@ -22,4 +22,4 @@ const CompanySchema = new Schema({
     }
 });
 
-mongoose.model('companyList', UserSchema);
+mongoose.model('companyList', CompanySchema);

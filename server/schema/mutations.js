@@ -10,10 +10,11 @@ const mutation = new GraphQLObjectType({
   	addUser: {
   		type: UserType,
   		args: {
-  			acount: { type: GraphQLString }
+			  acount: { type: GraphQLString },
+			  password: { type: GraphQLString }
   		},
-  		resolve(parentValue, { acount }){
-  			return (new User({ acount })).save()
+  		resolve(parentValue, { acount, password}){
+  			return (new User({ acount, password })).save()
   		}
   	}
   }
