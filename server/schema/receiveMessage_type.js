@@ -6,10 +6,10 @@ const {
   GraphQLInt
 } = graphql;
 
-const Message = mongoose.model('message');
+const receiveMessage = mongoose.model('receiveMessage');
 
-const MessageType = new GraphQLObjectType({
-  name: 'MessageType',
+const ReceiveMessageType = new GraphQLObjectType({
+  name: 'ReceiveMessageType',
   fields: () => ({
     text: { type: GraphQLString },
     time: { type: GraphQLInt },
@@ -17,12 +17,12 @@ const MessageType = new GraphQLObjectType({
       type: require('./user_type'),
       resolve(parentValue){
         return Message.findById(parentValue).populate('user')
-          .then((message) => {
-            return message.user;
+          .then((receiveMessage) => {
+            return receiveMessage.user;
           });
       }
     }
   })
 });
 
-module.exports = MessageType;
+module.exports = ReceiveMessageType;

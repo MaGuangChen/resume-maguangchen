@@ -1,11 +1,15 @@
 const graphql = require('graphql');
-const { GraphQLObjectType, GraphQLString, GraphQLID } = graphql;
+const { GraphQLObjectType, GraphQLString, GraphQLID, GraphQLInt } = graphql;
 const mongoose = require('mongoose');
 
 const user = mongoose.model('user');
 const UserType =  require('./user_type');
 const company = mongoose.model('company');
 const CompanyType =  require('./company_type');
+const message = mongoose.model('message');
+const MessageType = require('./message_type');
+const receiveMessage = mongoose.model('receiveMessage');
+const ReceiveMessageType = require('./receiveMessage_type');
 
 const companyMutation = require('../mutation/companyMutation');
 
@@ -30,7 +34,29 @@ const mutation = new GraphQLObjectType({
 		  resolve(parentValue, { id }){
 			  return user.remove({ _id: id });
 		  }
-	  },
+		},
+	  sendMesage : {
+				type: MessageType,
+				args: { 
+					userId: { type: GraphQLID },
+					text: { type: GraphQLString },
+					time: { type: GraphQLInt }
+				},
+				resolve(parentValue, { userId, text, time }) {
+					return user.addMessage(userId, text, time);
+				}
+		},
+		receiveNewMessage: {
+			type: ReceiveMessageType,
+      args: {
+				userId: { type: GraphQLID },
+				text: { type: GraphQLString },
+				time: { type: GraphQLInt }
+			},
+			resolve(parentValue, { userId, text, time }) {
+         return user.addReceiveMessage(userId, text, time);
+			}
+		},
 	  addCompanyToUser:  {
 		type: CompanyType,
 		args: { 

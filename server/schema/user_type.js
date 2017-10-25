@@ -10,6 +10,7 @@ const {
 
 const CompanyType = require('./company_type');
 const MessageType = require('./message_type');
+const ReceiveMessageType = require('./receiveMessage_type');
 const user = mongoose.model('user');
 
 const UserType = new GraphQLObjectType({
@@ -24,12 +25,18 @@ const UserType = new GraphQLObjectType({
         return user.findCompany(parentValue.id);
       }
     },
-    messages: {
+    message: {
       type: new GraphQLList(MessageType),
       resolve(parentValue) {
         return user.findMessage(parentValue.id);
       }
     },
+    receiveMessage: {
+      type: new GraphQLList(ReceiveMessageType),
+      resolve(parentValue) {
+        return user.findReceiveMessage(parentValue.id);
+      }
+    }
   })
 });
 
