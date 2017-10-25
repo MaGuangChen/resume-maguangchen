@@ -58,7 +58,7 @@ export default class PriceSlider extends Component {
         </div>
         <div>
           <p>{this.parseStr2Money(this.state.lowerValue)}</p>
-          <p>~</p>
+          <p className="contact_input_timeNsalary_salary_slash">~</p>
           <p>{this.parseStr2Money(this.state.upperValue)}</p>
         </div>
         <div>

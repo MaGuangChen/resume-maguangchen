@@ -321,6 +321,38 @@
     width: 100%;
     margin: 0px 0 0% 0%; } }
 
+.contact_input_timeNsalary {
+  margin-top: 3rem;
+  width: 100%; }
+  .contact_input_timeNsalary_salary {
+    background: #DCDCDC;
+    padding: 20px;
+    margin: 0 25% 0 25%;
+    border-radius: 25px; }
+    .contact_input_timeNsalary_salary i {
+      margin-bottom: 1rem; }
+    .contact_input_timeNsalary_salary_range {
+      margin: 1rem 0 0 0; }
+    .contact_input_timeNsalary_salary_title p {
+      font-size: 2.5rem; }
+    .contact_input_timeNsalary_salary_slash {
+      margin: 0 1rem; }
+
+.contact_input_submit {
+  margin: 4rem 35% 0 35%;
+  border: 2px solid #696969;
+  padding: 10px;
+  border-radius: 25px;
+  font-size: 2rem;
+  cursor: pointer; }
+  .contact_input_submit:hover {
+    background: #3429AB;
+    color: white;
+    box-shadow: 0 0 10px 3px #696969; }
+  @media screen and (max-width: 768px) {
+    .contact_input_submit {
+      margin: 4rem 25% 0 25%; } }
+
 .contact {
   text-align: center;
   margin: 3rem 0 5rem 0; }
@@ -350,33 +382,7 @@
       color: white;
       box-shadow: 0 0 10px 3px #696969; }
   .contact_input p {
-    display: inline;
-    margin: 0 1rem 0 1rem; }
-  .contact_input_timeNsalary {
-    margin-top: 3rem;
-    width: 100%; }
-    .contact_input_timeNsalary_salary {
-      background: #DCDCDC;
-      padding: 20px;
-      margin: 0 25% 0 25%;
-      border-radius: 25px; }
-      .contact_input_timeNsalary_salary i {
-        margin-bottom: 1rem; }
-      .contact_input_timeNsalary_salary_range {
-        margin: 1rem 0 0 0; }
-      .contact_input_timeNsalary_salary_title p {
-        font-size: 2.5rem; }
-  .contact_input_submit {
-    margin: 4rem 35% 0 35%;
-    border: 2px solid #696969;
-    padding: 10px;
-    border-radius: 25px;
-    font-size: 2rem;
-    cursor: pointer; }
-    .contact_input_submit:hover {
-      background: #3429AB;
-      color: white;
-      box-shadow: 0 0 10px 3px #696969; }
+    display: inline; }
 
 body {
   margin: 0;
