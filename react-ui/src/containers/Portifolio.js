@@ -27,7 +27,7 @@ const Portifolio = (props) => {
                     <Gallery 
                       background={settourOld}
                       title="網站與APP"
-                      text="東南旅遊既有網站與APP前端維護"
+                      text="東南旅遊前端維護"
                       link='https://www.settour.com.tw/'
                     />
                     <Gallery 

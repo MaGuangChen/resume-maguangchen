@@ -12,12 +12,6 @@ const CalendarWeekHeader = () => {
             <p>五</p>
             <p>六</p>
         </span>
-        {/* <span>一</span>
-        <span>二</span>
-        <span>三</span>
-        <span>四</span>
-        <span>五</span>
-        <span>六</span> */}
       </div>
 	)
 }
