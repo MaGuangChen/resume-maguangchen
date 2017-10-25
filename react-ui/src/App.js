@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import Intro from './containers/Intro';
 import About from './containers/About';

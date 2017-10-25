@@ -3,13 +3,28 @@
         &_timeNsalary {
             margin-top: 3rem;
             width: 100%;
-            &_salary{
+            &_time {
+                    margin: 0 0 2rem 1.5rem;    
+                    border: 1px solid;
+                    border-radius: 25px;
+                    padding: 15px;
+                    cursor: pointer;
+                    &:hover {
+                        background: #3429AB;
+                        color: white;
+                        box-shadow: 0 0 10px 3px #696969;
+                    }
+            }
+            &_salary {
                 background: #DCDCDC;
                 padding: 20px;
                 margin: 0 25% 0 25%;
                 border-radius: 25px;
                 i {
                     margin-bottom: 1rem;
+                }
+                p {
+                    display: inline;
                 }
                 &_range {
                     margin: 1rem 0 0 0;

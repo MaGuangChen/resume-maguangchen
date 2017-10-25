@@ -1,0 +1,161 @@
+@mixin changeMonthButton(){
+    position: relative;
+    text-align: left;
+    cursor: pointer;
+  }
+  @mixin monthDisplay(){
+    position: relative;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  @mixin dateDisplay($i){
+    text-align: center;
+    position: relative;
+    border: 1px solid #5B5A60;
+    border-top: none;
+    border-left: none;
+    padding: 10px;
+    width: 14.28%;
+    @if $i == 0 {
+        border-left: 1px solid #5B5A60;
+    }
+  }
+  
+  .calendar {
+      margin: 4rem 25%;
+      position: relative;
+      border-top: 1px solid;
+      text-align: center;
+      width: 50%;
+      &_header {
+          font-size: 2.5rem;
+          display: inline;
+          .active {
+              color: #FF0279;
+              border: 1px solid;
+              border-radius: 25px;
+              padding: 5px;
+          } 
+          &_year {
+              margin-bottom: 15px;
+              border-bottom: 1px solid;
+          }
+          &_substract-month{
+              @include changeMonthButton();
+              right: 20%;
+          }
+          &_add-month{
+              @include changeMonthButton();
+              left: 20%;
+          }
+          &_month {
+            display: inline;
+            &_1 {
+              @include monthDisplay();
+              right: 15%;
+            }
+            &_3 {
+              @include monthDisplay();
+              left: 15%;
+            }
+            span {
+                cursor: pointer;
+            }
+          }
+      }
+      &_week-header {
+          width: 100%;
+          font-size: 1rem;
+          margin-top: 1rem;
+          margin-bottom: -0.7rem;
+          p {
+              border: 1px solid #5B5A60;
+              border-left: none;
+              text-align: center;
+              font-size: 1.5rem;
+              display: inline-block;
+              padding: 10px;
+              height: 100%;
+              width: 14.28%;
+              &:nth-child(1) {
+                  border-left: 1px solid #5B5A60;
+              }
+          }
+      }
+      &_date-area {
+          text-align: left;
+          width: 100%;
+          div {
+              display: inline-block;
+              &:hover {
+                background: #3429AB;
+                cursor: pointer;
+                color: white;
+            }
+          }
+          .before-or-not-this-month{
+              color: rgb(169,169,169);
+          }
+          .selected-date {
+              background: #FF0279;
+              color: white;
+              &:hover{
+                background: #3429AB;
+                color: white;
+              }
+          }
+          @for $i from 0 through 6 {
+            .day_#{$i} {
+              @include dateDisplay($i);
+            }
+          }
+      }
+      .time-period {
+          margin-top: 1rem;
+          border-bottom: 2px solid;
+          div {
+              margin-top: 1rem;
+          }
+          .time-deviend {
+              margin-left: 1rem;
+              margin-right: 1rem;
+              font-size: 1.5rem;
+          }
+          &_select {
+              border: 1px solid;
+              padding: 10px;
+              cursor: pointer;
+              background: #EDEEEF;
+              color: #5B5A60;
+              margin-bottom: 1rem;
+              &:hover {
+                background: #3429AB;
+                color: white;
+              }
+              &_option {
+                  background: #EDEEEF;
+                  color: #5B5A60;
+              }
+          }
+      }
+      &_submit {
+          box-shadow: 0 0 5px 0px #5B5A60;
+          padding: 10px;
+          cursor: pointer;
+          &:hover {
+            box-shadow: 0 0 15px 0px #5B5A60;
+            background: #3429AB;
+            color: white;
+          }
+      }
+      &_des {
+          margin-bottom: 1rem;
+      }
+  }
+
+  @media screen and(max-width: 550px) {
+    .calendar {
+        margin: 4rem 10%;
+        width: 80%;
+    }    
+  }

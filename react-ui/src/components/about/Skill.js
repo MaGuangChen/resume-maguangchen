@@ -86,35 +86,3 @@ const Skill = () => {
 }
 
 export default Skill;
-
-
-{/* <div className="percentage">
-<div className="percentage_title">
-    <p>React 95%</p>
-    <img className="percentage_title_img_lg" src={react} alt="react-svg" />
-</div>
-<div className="percentage_bar">
-    <div className="percentage_bar_1"></div>
-</div>
-<div className="percentage_title">
-    <p>Redux 85%</p>
-    <img className="percentage_title_img_m" src={redux} alt="redux-svg" />
-</div>
-<div className="percentage_bar">
-    <div className="percentage_bar_2"></div>
-</div>
-<div className="percentage_title">
-    <p>SCSS 90%</p>
-    <img className="percentage_title_img_m" src={scss} alt="scss-svg" />
-</div>
-<div className="percentage_bar">
-    <div className="percentage_bar_3"></div>
-</div>
-<div className="percentage_title">
-    <p>graphQL 85%</p>
-    <img className="percentage_title_img_m" src={graphQL} alt="graphQL-svg" />
-</div>
-<div className="percentage_bar">
-    <div className="percentage_bar_4"></div>
-</div>
-</div> */}

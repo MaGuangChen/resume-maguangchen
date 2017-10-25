@@ -1,6 +1,16 @@
 .contact_input_timeNsalary {
   margin-top: 3rem;
   width: 100%; }
+  .contact_input_timeNsalary_time {
+    margin: 0 0 2rem 1.5rem;
+    border: 1px solid;
+    border-radius: 25px;
+    padding: 15px;
+    cursor: pointer; }
+    .contact_input_timeNsalary_time:hover {
+      background: #3429AB;
+      color: white;
+      box-shadow: 0 0 10px 3px #696969; }
   .contact_input_timeNsalary_salary {
     background: #DCDCDC;
     padding: 20px;
@@ -8,6 +18,8 @@
     border-radius: 25px; }
     .contact_input_timeNsalary_salary i {
       margin-bottom: 1rem; }
+    .contact_input_timeNsalary_salary p {
+      display: inline; }
     .contact_input_timeNsalary_salary_range {
       margin: 1rem 0 0 0; }
     .contact_input_timeNsalary_salary_title p {

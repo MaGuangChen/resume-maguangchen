@@ -1,4 +1,6 @@
 @import '../components/contact/timeNsalary.scss';
+@import '../components/contact/calendar.scss';
+
 .contact {
     text-align: center;
     margin: 3rem 0 5rem 0;
@@ -21,21 +23,6 @@
         label {
             display: block;
             margin: 5rem 0 1.5rem 1rem;
-        }
-        span {
-            margin: 0 0 2rem 1.5rem;    
-            border: 1px solid;
-            border-radius: 25px;
-            padding: 15px;
-            cursor: pointer;
-            &:hover {
-                background: #3429AB;
-                color: white;
-                box-shadow: 0 0 10px 3px #696969;
-            }
-        }
-        p {
-            display: inline;
         }
     }
 }
