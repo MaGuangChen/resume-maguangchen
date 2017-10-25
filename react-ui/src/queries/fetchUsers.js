@@ -2,10 +2,19 @@ import gql from 'graphql-tag';
 
 export default gql`
     {
-        user {
+        users {
             id
             acount
             password
+            companies{
+                id
+                name
+                position
+                location
+                contactPeople
+                eMail
+                phoneNumber
+            }
         }
     }
 `;

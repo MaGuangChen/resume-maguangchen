@@ -17,9 +17,17 @@ const CompanySchema = new Schema({
     contactPeople: {
         type: String
     },
-    contactPeoplePhoneNumber: {
+    eMail: {
         type: String
-    }
+    },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'user'
+    },
+    company: [{
+		type: Schema.Types.ObjectId,
+		ref: 'company'
+	}],
 });
 
-mongoose.model('companyList', CompanySchema);
+mongoose.model('company', CompanySchema);
