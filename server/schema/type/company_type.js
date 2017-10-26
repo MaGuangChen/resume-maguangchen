@@ -3,10 +3,11 @@ const graphql = require('graphql');
 const {
   GraphQLObjectType,
   GraphQLID,
+  GraphQLInt,
   GraphQLString
 } = graphql;
 
-const Company = mongoose.model('company');
+const company = mongoose.model('company');
 
 const CompanyType = new GraphQLObjectType({
     name: 'CompanyType',
@@ -18,16 +19,18 @@ const CompanyType = new GraphQLObjectType({
         phoneNumber: { type: GraphQLString },
         contactPeople: { type: GraphQLString },
         eMail: { type: GraphQLString },
+        reserVationDate: { type: GraphQLString },
+        minSalary: { type: GraphQLInt },
+        maxSalary: { type: GraphQLInt },
         user: {
             type: require('./user_type'),
             resolve(parentValue) {
-                return Company.findById(parentValue).populate('user')
+                return company.findById(parentValue).populate('user')
                 .then(company => {
                     return company.user
                 });
             }
-        }
-
+        },
     })
 });
 

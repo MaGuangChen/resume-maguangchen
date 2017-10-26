@@ -1,7 +1,7 @@
 {
-  "name": "heroku-cra-node",
+  "name": "paul-ma-resume",
   "version": "1.0.0",
-  "description": "",
+  "description": "my resume project",
   "engines": {
     "node": "8.5.0"
   },
@@ -29,7 +29,12 @@
     "node",
     "heroku",
     "create-react-app",
-    "react"
+    "react",
+    "mongoose",
+    "graphql",
+    "express",
+    "redux",
+    "router"
   ],
   "license": "MIT",
   "devDependencies": {}

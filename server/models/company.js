@@ -20,6 +20,17 @@ const CompanySchema = new Schema({
     eMail: {
         type: String
     },
+    reservationDate: {
+        type: String
+    },
+    minSalary: {
+        type: Number
+    },
+    maxSalary: {
+        type: Number
+    },
 });
+
+
 
 mongoose.model('company', CompanySchema);
