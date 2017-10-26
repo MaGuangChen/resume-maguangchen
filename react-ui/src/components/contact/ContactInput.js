@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { graphql } from 'react-apollo';
 import { compose } from 'react-apollo';
-// import moment from 'moment';
 
 import fetchUsers from '../../queries/fetchUsers';
 import signUpMutation from '../../mutations/singup';
@@ -106,13 +105,14 @@ class ContactInput extends Component {
         }
         
         
-        // const h = parseInt(hour);
+        const h = parseInt(hour);
         // let m = 0;
         // if(minute === '30'){
         //     m = parseInt(minute);
         // }
         const dd = date.date();
         console.log(dd);
+        console.log(h);
         // const d = moment({
         //     y:`${year}`,
         //     m: `${month}`,
