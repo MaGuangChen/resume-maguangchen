@@ -103,12 +103,6 @@ export const loginStatus = (status) => {
 	}
 }
 
-export const completedSignup = (status) => {
-	return {
-		type: 'COMPLETED_SIGNUP',
-		status
-	}
-}
 
 export const showLogin = (status) => {
 	return {

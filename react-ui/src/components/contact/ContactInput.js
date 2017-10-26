@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { graphql } from 'react-apollo';
 import { compose } from 'react-apollo';
+// import moment from 'moment';
 
 import fetchUsers from '../../queries/fetchUsers';
 import signUpMutation from '../../mutations/singup';
@@ -12,28 +13,30 @@ import Calendar from './Calendar';
 import * as actions from '../../actions/actions';
 
 class ContactInput extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            currentId: null,
+            currentAcount: null,
+        }
+    }
     componentWillReceiveProps(nextProps){
-        
         const users = nextProps.data.users;
-        if(users){
-            
-
+        const currentAcount = this.state.currentAcount;
+        if(currentAcount){
+            const currentUser = users.filter(u => u.acount === currentAcount);    
+            this.setState({ currentId: currentUser[0].id });
         }
     }
     render(){
-        // console.log(this.props);
-
+        const { currentId, currentAcount } = this.state;
+        let completedSignup = false;
+        if(currentId && currentAcount){
+           completedSignup = true;
+        }
         const { year, month, date, hour, minute,
             dispatch, showCalendar, submitSelectedTime,
-            timeSelectStatus, userInfo, data, login } = this.props;
-        
-        if(data.users){
-            const acountString = localStorage.getItem('currentUserAcount');
-            const currentUser = 
-            data.users.filter(u => u.acount === acountString);
-            console.log('this is current user');
-            console.log(currentUser);
-        }
+            timeSelectStatus, userInfo, data, companyInfo } = this.props;
 
         const cnWeekDay = ['日', '一', '二', '三', '四', '五', '六'];    
         const selectedInterviewTime = submitSelectedTime 
@@ -70,11 +73,10 @@ class ContactInput extends Component {
             if(data.users){
                 const checking = data.users.filter(u => u.acount === acount);
                 if(checking.length === 0){
-
                     const { acount, password } = this.props.userInfo;
-                    if(acount !== '' && acount !== null){
+                    if(acount !== '' && acount){
                         checkAcountStatus = password !== '' 
-                        ? password !== null ? true : false
+                        ? password ? true : false
                         : false;
                     }
                 }
@@ -85,8 +87,7 @@ class ContactInput extends Component {
                     .then(() => {
                         this.props.data.refetch()
                     })
-                    dispatch(actions.completedSignup(true));
-                    localStorage.setItem('currentUserAcount',JSON.stringify(acount));
+                    this.setState({ currentAcount: acount });
                 } else {
                     console.log('acount is 被搶')
                 }
@@ -94,36 +95,43 @@ class ContactInput extends Component {
         }
 
         const onSubmit = () => {
-            const { acount, password } = userInfo;
-            let checkAcountStatus = false;
-            let checkCompanyInput = false;
-            if(data.users){
-                const checking = data.users.filter(u => u.acount === acount);
-                if(checking.length === 0){
-                    const { name, position } = this.props.companyInfo;
-                    if(name !== '' && name !== null){
-                        checkCompanyInput = position !== '' 
-                        ? position !== null ? true : false
-                        : false;
-                    }
-                } 
-            }
-            if(checkAcountStatus & checkCompanyInput){
-                this.props.signupMutate({
-                    variables: { acount, password },
-                })
-                .then(() => {
-                    this.props.data.refetch()
-                })
-            }else {
-                console.log('acount is 被搶')
-            }
+            const { name, position, salary } = companyInfo;
+            const minSalary = salary[0];
+            const maxSalary = salary[1];
+            
+            
+            // const date = `{
+
+            // }`;
         }
+        
+        
+        // const h = parseInt(hour);
+        // let m = 0;
+        // if(minute === '30'){
+        //     m = parseInt(minute);
+        // }
+        const dd = date.date();
+        console.log(dd);
+        // const d = moment({
+        //     y:`${year}`,
+        //     m: `${month}`,
+        //     d: dd,
+        //     h: h,
+        //     minute: m,
+        //     second: 0,
+        //     millisecond :0
+        // }).unix();
+        // const dddd = moment(d).format('l');
+        // console.log('this is current time');
+        // console.log(d);
+        // console.log(dddd);
+
 
         return (
             <div className="contact_input">
 
-              { !login.completedSignup &&
+              { !completedSignup &&
               <div>
                 <label>*您的聯絡信箱與觀看留言密碼</label>
                 <div>
@@ -144,7 +152,7 @@ class ContactInput extends Component {
                 下一步開始填寫您的公司資料與所需職位
               </div> }
             
-            { login.completedSignup &&
+            { completedSignup &&
              <div>
                 <div>
                     <label>*您的公司名稱與所需職位</label>
