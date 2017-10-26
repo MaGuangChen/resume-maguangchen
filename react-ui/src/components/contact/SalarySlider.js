@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Slider, { createSliderWithTooltip } from 'rc-slider';
-
 import 'rc-slider/assets/index.css';
 
+import * as actions from '../../actions/actions';
 const Range = createSliderWithTooltip(Slider.Range);
-export default class PriceSlider extends Component {
+
+class PriceSlider extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -29,10 +31,8 @@ export default class PriceSlider extends Component {
     const value = this.slideUnit(v);
     let num = value.toString();
     const pattern = /(-?\d+)(\d{3})/;
-    while(pattern.test(num))
-    {
-     num = num.replace(pattern, "$1,$2");
-     
+    while(pattern.test(num)){
+      num = num.replace(pattern, "$1,$2");
     }
     return `$${num}`
   }
@@ -45,6 +45,8 @@ export default class PriceSlider extends Component {
       lowerValue,
       upperValue
     });
+    const salary = [lowerValue, upperValue];
+    this.props.dispatch(actions.handleSalaryBudget(salary));
   }
 
   render() {
@@ -77,3 +79,5 @@ export default class PriceSlider extends Component {
     );
   }
 }
+
+export default connect()(PriceSlider);

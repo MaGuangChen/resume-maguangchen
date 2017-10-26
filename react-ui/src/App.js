@@ -9,8 +9,6 @@ import Portifolio from './containers/Portifolio';
 import './styles/App.css';
 
 const App = (props) => {
-  console.log('in app container');
-  console.log(props.data);
   return (
     <div className="App">
       <Intro />

@@ -7,9 +7,55 @@ export const changeAboutSectionReducer = (state = 'aboutMe', action) => {
       default :
         return state;
     }
-  }
+}
 
-  const defaultCalendar = {
+const companyInfo = {
+  name: '',
+  position: '',
+  salary: [45000, 48000],
+}
+export const handleCompanyInfoReducer = (state = companyInfo, action) => {
+    switch(action.type) {
+      case 'HANDLE_COMPANY_NAME' :
+        return {
+          ...state,
+          name: action.name
+        };
+      case 'HANDLE_COMPANY_POSITION' :
+        return {
+          ...state,
+          position: action.position
+        };
+      case 'HANDLE_SALARY_BUDGET' :
+        return action.salary
+      default : 
+        return state;
+    }
+}
+
+const acountInfo = {
+  acount: null,
+  password: null
+}
+
+export const createAcountReducer = (state = acountInfo, action) => {
+    switch(action.type) {
+      case 'CREATE_ACOUNT' :
+        return {
+          ...state,
+          acount: action.acount,
+        };
+      case 'CREATE_PASSWORD' :
+        return {
+          ...state,
+          password: action.password
+        }
+      default :
+        return state;
+    }
+}
+
+const defaultCalendar = {
     showCalendar: false,
     month: moment().month() + 1,
     year: moment().get('year'),
@@ -18,8 +64,8 @@ export const changeAboutSectionReducer = (state = 'aboutMe', action) => {
     minute: '00',
     timeSelectStatus: false,
     submitSelectedTime: false,
-  }
-  export const calendarChangeReducer = (state = defaultCalendar, action) => {
+}
+export const calendarChangeReducer = (state = defaultCalendar, action) => {
     switch(action.type) {
       case 'HANDLE_CALENDAR' :
         return {
@@ -64,4 +110,5 @@ export const changeAboutSectionReducer = (state = 'aboutMe', action) => {
       default :
         return state;
     }
-  }
+}
+

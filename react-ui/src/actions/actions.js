@@ -60,3 +60,39 @@ export const handleSubmitSelectedTime = (submitSelectedTime) => {
     	submitSelectedTime
     }
 }
+
+export const handleCompanyName = (name) => {
+	return {
+		type: 'HANDLE_COMPANY_NAME',
+		name
+	}
+}
+
+export const handleCompanyPosition = (position) => {
+	return {
+		type: 'HANDLE_COMPANY_POSITION',
+		position
+	}
+}
+
+export const handleSalaryBudget = (salary) => {
+	return {
+		type: 'HANDLE_SALARY_BUDGET',
+		salary
+	}
+}
+
+export const createAcount = (acount) => {
+    return {
+		type: 'CREATE_ACOUNT',
+		acount
+	}
+}
+
+export const createPassword = (password) => {
+    return {
+		type: 'CREATE_PASSWORD',
+		password
+	}
+}
+
