@@ -12,36 +12,29 @@ import Calendar from './Calendar';
 import * as actions from '../../actions/actions';
 
 class ContactInput extends Component {
-    componentWillReceiveProps(nextProps) {
-       if(nextProps.data){
-            console.log('in recevice props');
-            const { name, position, salary } = nextProps.companyInfo;
-            const acount  = nextProps.userInfo.acount;
-            const user = nextProps.data.users.filter(u => u.acount === acount);
-            // console.log('company info :', nextProps.companyInfo);
-            // console.log(acount);
-            console.log(nextProps.data.users);
-            console.log('user is : ', user);
-            if(user.length > 0){
-                const userId = user[0].id;
-                const minSalary = salary[0];
-                const maxSalary = salary[1];
-                console.log(this.props);
-                this.props.addCompanyMutate({
-                    variables: { userId, name, position, minSalary, maxSalary },
-                })
-                .then(() => {
-                    this.props.data.refetch()
-                })
-            }
-        } 
-    }
+    componentWillReceiveProps(nextProps){
+        
+        const users = nextProps.data.users;
+        if(users){
+            
 
+        }
+    }
     render(){
+        // console.log(this.props);
+
         const { year, month, date, hour, minute,
             dispatch, showCalendar, submitSelectedTime,
-            timeSelectStatus, userInfo, data } = this.props;
+            timeSelectStatus, userInfo, data, login } = this.props;
         
+        if(data.users){
+            const acountString = localStorage.getItem('currentUserAcount');
+            const currentUser = 
+            data.users.filter(u => u.acount === acountString);
+            console.log('this is current user');
+            console.log(currentUser);
+        }
+
         const cnWeekDay = ['日', '一', '二', '三', '四', '五', '六'];    
         const selectedInterviewTime = submitSelectedTime 
             ? `${year}年${month}月${date.date()}日 
@@ -70,19 +63,52 @@ class ContactInput extends Component {
             const password = e.target.value;
             dispatch(actions.createPassword(password));
         }
-        
+
+        const handleCreateAcount = () => {
+            const { acount, password } = userInfo;
+            let checkAcountStatus = false;
+            if(data.users){
+                const checking = data.users.filter(u => u.acount === acount);
+                if(checking.length === 0){
+
+                    const { acount, password } = this.props.userInfo;
+                    if(acount !== '' && acount !== null){
+                        checkAcountStatus = password !== '' 
+                        ? password !== null ? true : false
+                        : false;
+                    }
+                }
+                if(checkAcountStatus){
+                    this.props.signupMutate({
+                        variables: { acount, password },
+                    })
+                    .then(() => {
+                        this.props.data.refetch()
+                    })
+                    dispatch(actions.completedSignup(true));
+                    localStorage.setItem('currentUserAcount',JSON.stringify(acount));
+                } else {
+                    console.log('acount is 被搶')
+                }
+            }
+        }
+
         const onSubmit = () => {
             const { acount, password } = userInfo;
-            let check = false;
+            let checkAcountStatus = false;
+            let checkCompanyInput = false;
             if(data.users){
-                const checkAcount = data.users.filter(u => u.acount === acount);
-                if(checkAcount.length === 0){
-                  console.log(checkAcount);
-                  check = true;
+                const checking = data.users.filter(u => u.acount === acount);
+                if(checking.length === 0){
+                    const { name, position } = this.props.companyInfo;
+                    if(name !== '' && name !== null){
+                        checkCompanyInput = position !== '' 
+                        ? position !== null ? true : false
+                        : false;
+                    }
                 } 
             }
-            if(check){
-                console.log(check);
+            if(checkAcountStatus & checkCompanyInput){
                 this.props.signupMutate({
                     variables: { acount, password },
                 })
@@ -93,8 +119,33 @@ class ContactInput extends Component {
                 console.log('acount is 被搶')
             }
         }
+
         return (
             <div className="contact_input">
+
+              { !login.completedSignup &&
+              <div>
+                <label>*您的聯絡信箱與觀看留言密碼</label>
+                <div>
+                    <i className="fa fa-envelope-o fa-2x" aria-hidden="true"></i>
+                    <input onChange={handleAcountInput} type="text" placeholder="輸入您的e-mail作為帳號" />
+                </div>
+                <div>
+                    <i className="fa fa-lock fa-2x" aria-hidden="true"></i>
+                    <input onChange={handlePasswordInput} type="text" placeholder="創建密碼" />
+                </div>
+
+                <div onClick={handleCreateAcount} className="contact_input_submit contact_input_sign-up">
+                  創辦帳號並繼續填寫<i className="fa fa-paper-plane-o" aria-hidden="true"></i>
+                </div>
+                <div onClick={handleCreateAcount} className="contact_input_submit contact_input_login">
+                  已經有帳號則可以直接login<i className="fa fa-paper-plane-o" aria-hidden="true"></i>
+                </div>
+                下一步開始填寫您的公司資料與所需職位
+              </div> }
+            
+            { login.completedSignup &&
+             <div>
                 <div>
                     <label>*您的公司名稱與所需職位</label>
                     <i className="fa fa-university fa-2x" aria-hidden="true"></i> 
@@ -103,15 +154,6 @@ class ContactInput extends Component {
                 <div>
                     <i className="fa fa-user-circle-o fa-2x" aria-hidden="true"></i>
                     <input onChange={handleCompanyPosition} type="text" placeholder="輸入您所需求之職位" />
-                </div>
-                <label>*創建用於此網頁之帳號</label>
-                <div>
-                    <i className="fa fa-envelope-o fa-2x" aria-hidden="true"></i>
-                    <input onChange={handleAcountInput} type="text" placeholder="輸入您的e-mail作為帳號" />
-                </div>
-                <div>
-                    <i className="fa fa-lock fa-2x" aria-hidden="true"></i>
-                    <input onChange={handlePasswordInput} type="text" placeholder="創建密碼" />
                 </div>
                 <label>*您方便的面試時間與預計的薪水區間</label>
                 <div className="contact_input_timeNsalary">
@@ -138,7 +180,8 @@ class ContactInput extends Component {
                 <div onClick={onSubmit} className="contact_input_submit">
                   確認提交<i className="fa fa-paper-plane-o" aria-hidden="true"></i>
                 </div>
-            </div>
+            </div> }  
+        </div>
         )
     }
 }
@@ -162,5 +205,6 @@ export default connect((state) => {
       submitSelectedTime: state.calendar.submitSelectedTime,
       userInfo: state.userInfo,
       companyInfo: state.companyInfo,
+      login: state.login,
     }
   })(componentWithGraphQL);

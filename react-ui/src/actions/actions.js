@@ -96,3 +96,30 @@ export const createPassword = (password) => {
 	}
 }
 
+export const loginStatus = (status) => {
+	return {
+		type: 'LOGIN_STATUS',
+		status
+	}
+}
+
+export const completedSignup = (status) => {
+	return {
+		type: 'COMPLETED_SIGNUP',
+		status
+	}
+}
+
+export const showLogin = (status) => {
+	return {
+		type: 'SHOW_LOGIN',
+		status
+	}
+}
+
+export const setCurrentUser = (id) => {
+	return {
+		type: 'SET_CURRENT_USER',
+		id
+	}
+}

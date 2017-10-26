@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import createHistory from 'history/createBrowserHistory';
 import { routerReducer, routerMiddleware } from 'react-router-redux';
 import { changeAboutSectionReducer, calendarChangeReducer, 
-  handleCompanyInfoReducer, createAcountReducer }
+  handleCompanyInfoReducer, createAcountReducer, loginReducer }
 from '../reducers/reducers';
 
 const history = createHistory();
@@ -13,6 +13,7 @@ export const configure = (initialState = {}) => {
       calendar: calendarChangeReducer,
       companyInfo: handleCompanyInfoReducer,
       userInfo: createAcountReducer,
+      login: loginReducer,
       router: routerReducer
     });
     let store = redux.createStore(reducer, initialState, redux.compose(

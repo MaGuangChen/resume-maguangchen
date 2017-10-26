@@ -28,7 +28,7 @@
       margin: 0 1rem; }
 
 .contact_input_submit {
-  margin: 4rem 35% 0 35%;
+  margin: 4rem 35% 4rem 35%;
   border: 2px solid #696969;
   padding: 10px;
   border-radius: 25px;
@@ -41,3 +41,17 @@
   @media screen and (max-width: 768px) {
     .contact_input_submit {
       margin: 4rem 25% 0 25%; } }
+
+.contact_input_sign-up {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  background: #FF0279;
+  color: white;
+  box-shadow: 0 0 10px 3px #696969; }
+
+.contact_input_login {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  box-shadow: 0 0 10px 3px #696969; }

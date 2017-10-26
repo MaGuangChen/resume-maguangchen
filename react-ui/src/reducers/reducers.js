@@ -112,3 +112,36 @@ export const calendarChangeReducer = (state = defaultCalendar, action) => {
     }
 }
 
+const loginDefaultState = {
+    login: false,
+    completedSignup: false,
+    showLogin: false,
+    currentUser: null,
+}
+
+export const loginReducer = (state = loginDefaultState, action) => {
+    switch(action.type) {
+      case 'LOGIN_STATUS' :
+       return {
+         ...state,
+         login: action.status
+        };
+      case 'COMPLETED_SIGNUP' :
+        return {
+          ...state,
+          completedSignup: action.status
+         };
+      case 'SHOW_LOGIN' :
+        return {
+          ...state,
+          showLogin: action.status
+         };
+      case 'SET_CURRENT_USER' :
+         return {
+           ...state,
+           currentUser: action.id
+          };
+      default :
+        return state;
+    }
+}
