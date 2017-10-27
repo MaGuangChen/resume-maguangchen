@@ -5,20 +5,8 @@ const CompanySchema = new Schema({
 	name: {
 		type: String,
     },
-    location: {
-        type: String,
-    },
-	position: {
+    position: {
 		type: String,
-    },
-    phoneNumber: {
-        type: String,
-    },
-    contactPeople: {
-        type: String
-    },
-    eMail: {
-        type: String
     },
     reservationDate: {
         type: String
@@ -28,6 +16,18 @@ const CompanySchema = new Schema({
     },
     maxSalary: {
         type: Number
+    },
+    location: {
+        type: String,
+    },
+    phoneNumber: {
+        type: String,
+    },
+    contactPeople: {
+        type: String
+    },
+    eMail: {
+        type: String
     },
 });
 

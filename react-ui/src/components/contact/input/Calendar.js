@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 import { extendMoment } from 'moment-range';
 
-import CalendarMonthAndYear from './CalendarComponent/CalendarMonthAndYear';
-import CalendarWeekHeader from './CalendarComponent/CalendarWeekHeader';
-import CalendarDates from './CalendarComponent/CalendarDates';
-import TimePeriod from './CalendarComponent/TimePeriod';
+import CalendarMonthAndYear from '../CalendarComponent/CalendarMonthAndYear';
+import CalendarWeekHeader from '../CalendarComponent/CalendarWeekHeader';
+import CalendarDates from '../CalendarComponent/CalendarDates';
+import TimePeriod from '../CalendarComponent/TimePeriod';
 
 const Calendar = (props) => {
   const { year, month, date, timeSelectStatus, showCalendar } = props;

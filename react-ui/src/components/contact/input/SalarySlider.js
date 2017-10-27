@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Slider, { createSliderWithTooltip } from 'rc-slider';
 import 'rc-slider/assets/index.css';
 
-import * as actions from '../../actions/actions';
+import * as actions from '../../../actions/actions';
 const Range = createSliderWithTooltip(Slider.Range);
 
 class PriceSlider extends Component {

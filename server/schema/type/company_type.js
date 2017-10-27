@@ -14,14 +14,14 @@ const CompanyType = new GraphQLObjectType({
     fields: () => ({
         id: { type: GraphQLID },
         name: { type: GraphQLString },
-        location: { type: GraphQLString },
         position: { type: GraphQLString },
+        reservationDate: { type: GraphQLString },
+        minSalary: { type: GraphQLInt },
+        maxSalary: { type: GraphQLInt },
+        location: { type: GraphQLString },
         phoneNumber: { type: GraphQLString },
         contactPeople: { type: GraphQLString },
         eMail: { type: GraphQLString },
-        reserVationDate: { type: GraphQLString },
-        minSalary: { type: GraphQLInt },
-        maxSalary: { type: GraphQLInt },
         user: {
             type: require('./user_type'),
             resolve(parentValue) {

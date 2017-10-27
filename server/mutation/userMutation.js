@@ -52,24 +52,21 @@ const userMutation = {
     addCompanyToUser:  {
 		type: CompanyType,
 		args: { 
-		    userId: { type:  GraphQLID },
+		    acount: { type:  GraphQLString },
 		    name: { type: GraphQLString },
 			position: { type: GraphQLString },
 			reservationDate: { type: GraphQLString },
 			minSalary: { type: GraphQLInt },
             maxSalary: { type: GraphQLInt }
 		},
-		resolve(parentValue, { userId, name, position }) {
-		    return user.addCompany( userId, name, position);
+		resolve(parentValue, { 
+            acount, name, position,
+             reservationDate, minSalary, maxSalary }) {
+            return user.addCompany( acount, name, position, 
+                reservationDate, minSalary, maxSalary);
 		}
     },
-    deleteCompany: {
-        type: CompanyType,
-        args: { id: { type: GraphQLID } },
-        resolve(parentValue, { id }) {
-            return company.remove({ _id: id });
-        }
-    },
+    
 };
 
 module.exports = userMutation;

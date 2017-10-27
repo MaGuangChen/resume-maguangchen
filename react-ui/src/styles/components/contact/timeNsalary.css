@@ -49,6 +49,8 @@
   background: #FF0279;
   color: white;
   box-shadow: 0 0 10px 3px #696969; }
+  .contact_input_sign-up i {
+    margin-left: 2rem; }
 
 .contact_input_login {
   margin-top: 2rem;

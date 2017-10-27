@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
-	acount: { type: String },
+  acount: { type: String },
   password: { type: String },
 	company: [{
 		type: Schema.Types.ObjectId,
@@ -18,12 +18,14 @@ const UserSchema = new Schema({
   }]
 });
 
-UserSchema.statics.addCompany = function(id, name, position) {
+UserSchema.statics.addCompany = function(acount, name, position, 
+  reservationDate, minSalary, maxSalary) {
   const Company = mongoose.model('company');
 
-  return this.findById(id)
+  return this.findOne({ acount: acount })
     .then(user => {
-      const company = new Company({ name, position, user })
+      const company = new Company({ name, position, 
+        reservationDate, minSalary, maxSalary })
       user.company.push(company)
       return Promise.all([company.save(), user.save()])
         .then(([company, user]) => user);

@@ -27,7 +27,10 @@ export const handleCompanyInfoReducer = (state = companyInfo, action) => {
           position: action.position
         };
       case 'HANDLE_SALARY_BUDGET' :
-        return action.salary
+        return {
+          ...state,
+          salary: action.salary
+        };
       default : 
         return state;
     }

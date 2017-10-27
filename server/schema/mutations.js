@@ -6,12 +6,13 @@ const userMutation = require('../mutation/userMutation');
 const companyMutation = require('../mutation/companyMutation');
 
 const { addUser, deleteUser, receiveNewMessage, sendMesage, 
-	addCompanyToUser, deleteCompany } = userMutation;
+	addCompanyToUser } = userMutation;
 
 const { editCompanyName, editCompanyPosition, 
 	editCompanyLocation, editCompanyPhoneNumber, 
 	editCompanyContactPeople,editCompanyEmail,
-  editMinSalary, editMaxSalary, editReserVationDate, } = companyMutation;
+	editMinSalary, editMaxSalary, editReserVationDate,
+	deleteCompany } = companyMutation;
 
 const mutation = new GraphQLObjectType({
   name: 'Mutation',

@@ -36,7 +36,7 @@
   .front_logo {
     background: rgba(105, 105, 105, 0.9);
     color: white;
-    top: 45%;
+    top: 35%;
     position: absolute;
     display: block;
     z-index: 1;
@@ -61,7 +61,7 @@
 
 @media screen and (min-width: 320px) and (max-width: 374px) {
   .front_logo {
-    top: 20%;
+    top: 10%;
     width: 100%;
     background: rgba(105, 105, 105, 0.7); }
   .front .main-button {
@@ -372,6 +372,8 @@
   background: #FF0279;
   color: white;
   box-shadow: 0 0 10px 3px #696969; }
+  .contact_input_sign-up i {
+    margin-left: 2rem; }
 
 .contact_input_login {
   margin-top: 2rem;
@@ -560,6 +562,20 @@
   margin: 3rem 0 5rem 0; }
   .contact_title {
     font-size: 3.5rem; }
+  .contact_step {
+    margin: 5rem 0 5rem 0; }
+    .contact_step span {
+      cursor: pointer;
+      font-size: 2rem;
+      font-weight: 600; }
+      .contact_step span:nth-child(1) {
+        margin-right: 3rem; }
+    .contact_step_active {
+      color: white;
+      border-bottom: 5px solid #513DDC;
+      padding: 0 0 10px 0;
+      font-size: 3rem;
+      text-shadow: 0px 0px 10px #513DDC, 0px 0px 10px #513DDC, 0px 0px 10px #513DDC, 0px 0px 10px #fff, 0px 0px 10px #fff, 0px 0px 10px #fff, 0px 0px 10px #fff; }
   .contact_input input {
     border-radius: 0px;
     background: none;

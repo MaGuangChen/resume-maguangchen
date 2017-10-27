@@ -10,7 +10,7 @@
     &_logo {
       background: rgba(105,105,105,0.9);
       color: white;
-      top: 45%;
+      top: 35%;
       position: absolute;
       display: block;
       z-index: 1;
@@ -44,7 +44,7 @@
   @media screen and (min-width: 320px) and (max-width: 374px) {
    .front {
       &_logo {
-        top: 20%;
+        top: 10%;
         width: 100%;
         background: rgba(105,105,105,0.7);
       }
