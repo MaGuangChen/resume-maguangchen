@@ -114,7 +114,7 @@ class ContactInput extends Component {
                 timeSelectStatus={timeSelectStatus} 
                 addCompany={this.addCompany} acount={this.state.acount}
                 /> }
-                <LightBox />
+                {/* <LightBox /> */}
             </div>
         )
     }
