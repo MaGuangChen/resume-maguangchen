@@ -10,7 +10,12 @@
     }
     &_step {
         margin: 5rem 0 5rem 0;
+        position: relative;
+        max-width: 100%;
         span {
+            position: relative;
+            width: 30%;
+            display: inline-block;
             cursor: pointer;
             font-size: 2rem;
             font-weight: 600;

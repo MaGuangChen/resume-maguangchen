@@ -293,8 +293,13 @@
   .contact_title {
     font-size: 3.5rem; }
   .contact_step {
-    margin: 5rem 0 5rem 0; }
+    margin: 5rem 0 5rem 0;
+    position: relative;
+    max-width: 100%; }
     .contact_step span {
+      position: relative;
+      width: 30%;
+      display: inline-block;
       cursor: pointer;
       font-size: 2rem;
       font-weight: 600; }

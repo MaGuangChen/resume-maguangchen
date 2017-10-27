@@ -18,7 +18,7 @@ class ContactInput extends Component {
         this.state = {
             currentAcount: null,
             step: 1,
-            showCreateAcountFail: false,
+            showLightBox: false,
         }
         this.handleCreateAcount = this.handleCreateAcount.bind(this);
         this.addCompany = this.addCompany.bind(this);
