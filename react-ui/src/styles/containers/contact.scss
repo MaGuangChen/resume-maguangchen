@@ -1,9 +1,10 @@
 @import '../components/contact/timeNsalary.scss';
 @import '../components/contact/calendar.scss';
-
+@import '../base/light-box.scss';
 .contact {
     text-align: center;
     margin: 3rem 0 5rem 0;
+    max-width: 100%;
     &_title {
         font-size: 3.5rem;
     }

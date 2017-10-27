@@ -62,7 +62,7 @@ const StepTwo = (props) => {
                 upperValue={48000}
             />
             </div>
-            <div onClick={props.onSubmit} className="contact_input_submit">
+            <div onClick={props.addCompany} className="contact_input_submit">
             確認提交<i className="fa fa-paper-plane-o" aria-hidden="true"></i>
             </div>
     </div>   

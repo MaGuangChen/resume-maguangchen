@@ -10,28 +10,29 @@ import addCompanyMutation from '../../mutations/addCompany';
 
 import StepOne from './input/StepOne';
 import StepTwo from './input/StepTwo';
+import LightBox from '../base/LightBox';
 
 class ContactInput extends Component {
     constructor(props){
         super(props);
         this.state = {
-            currentId: null,
             currentAcount: null,
             step: 1,
+            showCreateAcountFail: false,
         }
         this.handleCreateAcount = this.handleCreateAcount.bind(this);
-        this.onSumbit = this.onSumbit.bind(this);
+        this.addCompany = this.addCompany.bind(this);
         this.changeStep1 = this.changeStep1.bind(this);
         this.changeStep2 = this.changeStep2.bind(this);
     }
-    componentWillReceiveProps(nextProps){
-        const users = nextProps.data.users;
-        const currentAcount = this.state.currentAcount;
-        if(currentAcount){
-            const currentUser = users.filter(u => u.acount === currentAcount);    
-            this.setState({ currentId: currentUser[0].id });
-        }
-    }
+    // componentWillReceiveProps(nextProps){
+    //     const users = nextProps.data.users;
+    //     const currentAcount = this.state.currentAcount;
+    //     if(currentAcount){
+    //         const currentUser = users.filter(u => u.acount === currentAcount);    
+    //         this.setState({ currentId: currentUser[0].id });
+    //     }
+    // }
 
     changeStep1() {
        this.setState({ step: 1 })
@@ -48,9 +49,9 @@ class ContactInput extends Component {
             const checking = data.users.filter(u => u.acount === acount);
             if(checking.length === 0){
                 const { acount, password } = this.props.userInfo;
-                if(acount !== '' && acount){
+                if(acount !== '' && acount.length > 9){
                     checkAcountStatus = password !== '' 
-                    ? password ? true : false
+                    ? password  ? true : false
                     : false;
                 }
             }
@@ -62,31 +63,30 @@ class ContactInput extends Component {
                     this.props.data.refetch()
                 })
                 this.setState({ currentAcount: acount });
-            } else {
-                console.log('acount is 被搶')
             }
         }
     }
     
-    onSumbit() {
+    addCompany() {
         const { year, month, date, hour, minute, companyInfo } = this.props;
         const { name, position, salary } = companyInfo;
         const minSalary = salary[0];
         const maxSalary = salary[1];
         const timeArray = [year, month, date.date(), hour, minute];
-        const reservationDate = `${timeArray}`;
-        const userId = this.state.currentId;
-        if(name.length > 0 && position.length > 0) {
+        const reservationDate = `[${timeArray}]`;
+        const acount = this.state.currentAcount;
+        
+        if(name.length > 0 && position.length > 0 && acount !== null) {
             this.props.addCompanyMutate({
                 variables: { 
-                    userId,
+                    acount,
                     name, 
                     position, 
                     reservationDate,
                     minSalary,
                     maxSalary
                 }
-            }).then(() => console.log('finished'));
+            })
         }
     }
 
@@ -106,11 +106,15 @@ class ContactInput extends Component {
                 </div>
                 { this.state.step === 1 && 
                 <StepOne handleCreateAcount={this.handleCreateAcount} /> }
-                { this.state.step === 2 && <StepTwo
+                { this.state.step === 2 && 
+                <StepTwo
                 year={year} month={month} date={date} hour={hour} minute={minute}
-                showCalendar={showCalendar} submitSelectedTime={submitSelectedTime}
-                timeSelectStatus={timeSelectStatus} onSumbit={this.onSumbit}
+                showCalendar={showCalendar} 
+                submitSelectedTime={submitSelectedTime}
+                timeSelectStatus={timeSelectStatus} 
+                addCompany={this.addCompany} acount={this.state.acount}
                 /> }
+                <LightBox />
             </div>
         )
     }
@@ -135,6 +139,5 @@ export default connect((state) => {
       submitSelectedTime: state.calendar.submitSelectedTime,
       userInfo: state.userInfo,
       companyInfo: state.companyInfo,
-      login: state.login,
     }
   })(componentWithGraphQL);
