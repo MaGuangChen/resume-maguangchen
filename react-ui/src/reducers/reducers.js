@@ -62,7 +62,7 @@ const defaultCalendar = {
     showCalendar: false,
     month: moment().month() + 1,
     year: moment().get('year'),
-    date: moment(),
+    date: moment().add(1, 'day'),
     hour: '10',
     minute: '00',
     timeSelectStatus: false,

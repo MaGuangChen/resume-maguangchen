@@ -16,23 +16,32 @@ class ContactInput extends Component {
     constructor(props){
         super(props);
         this.state = {
+            currentId: null,
             currentAcount: null,
             step: 1,
-            showLightBox: false,
+            showLightBox1: false,
+            showLightBox2: false,
         }
         this.handleCreateAcount = this.handleCreateAcount.bind(this);
         this.addCompany = this.addCompany.bind(this);
         this.changeStep1 = this.changeStep1.bind(this);
         this.changeStep2 = this.changeStep2.bind(this);
+        this.handleCloseLightBox1 = this.handleCloseLightBox1.bind(this);
+        this.handleCloseLightBox2 = this.handleCloseLightBox2.bind(this);
     }
-    // componentWillReceiveProps(nextProps){
-    //     const users = nextProps.data.users;
-    //     const currentAcount = this.state.currentAcount;
-    //     if(currentAcount){
-    //         const currentUser = users.filter(u => u.acount === currentAcount);    
-    //         this.setState({ currentId: currentUser[0].id });
-    //     }
-    // }
+
+    componentWillReceiveProps(nextProps){
+        const users = nextProps.data.users;
+        console.log(users);
+
+        const currentAcount = this.state.currentAcount;
+        if(currentAcount){
+            if(users){
+                const currentUser = users.filter(u => u.acount === currentAcount);    
+                this.setState({ currentId: currentUser[0].id });
+            }
+        }
+    }
 
     changeStep1() {
        this.setState({ step: 1 })
@@ -53,7 +62,11 @@ class ContactInput extends Component {
                     checkAcountStatus = password !== '' 
                     ? password  ? true : false
                     : false;
+                } else {
+                   this.setState({ showLightBox1: true });
                 }
+            } else if(checking.length > 0){
+                this.setState({ showLightBox1: true });
             }
             if(checkAcountStatus){
                 this.props.signupMutate({
@@ -74,12 +87,12 @@ class ContactInput extends Component {
         const maxSalary = salary[1];
         const timeArray = [year, month, date.date(), hour, minute];
         const reservationDate = `[${timeArray}]`;
-        const acount = this.state.currentAcount;
-        
-        if(name.length > 0 && position.length > 0 && acount !== null) {
+        const { currentAcount, currentId } = this.state;
+        if(name.length > 0 && position.length > 0 
+            && currentAcount !== null && currentId) {
             this.props.addCompanyMutate({
                 variables: { 
-                    acount,
+                    acount: currentAcount,
                     name, 
                     position, 
                     reservationDate,
@@ -87,7 +100,16 @@ class ContactInput extends Component {
                     maxSalary
                 }
             })
+        } else {
+            this.setState({ showLightBox2: true });
         }
+    }
+    
+    handleCloseLightBox1(){
+        this.setState({ showLightBox1 : false });
+    }
+    handleCloseLightBox2(){
+        this.setState({ showLightBox2 : false });
     }
 
     render(){
@@ -104,17 +126,32 @@ class ContactInput extends Component {
                     <span onClick={this.changeStep1} className={step1Active}>Step 1 填寫聯絡信箱</span>
                     <span onClick={this.changeStep2} className={step2Active}>Step 2 填寫公司資料</span>
                 </div>
-                { this.state.step === 1 && 
-                <StepOne handleCreateAcount={this.handleCreateAcount} /> }
+                { this.state.step === 1 &&
+                <div>
+                    { this.state.showLightBox1 && <LightBox 
+                        title="創建帳號失敗"
+                        text="您好，創建帳號失敗的原因可能是您曾申請過帳號，或是您所輸入的帳號不是有效的e-mail信箱"
+                        handleClose={this.handleCloseLightBox1}
+                    /> } 
+                    <StepOne handleCreateAcount={this.handleCreateAcount} /> 
+                </div>
+                }
+                
                 { this.state.step === 2 && 
-                <StepTwo
-                year={year} month={month} date={date} hour={hour} minute={minute}
-                showCalendar={showCalendar} 
-                submitSelectedTime={submitSelectedTime}
-                timeSelectStatus={timeSelectStatus} 
-                addCompany={this.addCompany} acount={this.state.acount}
-                /> }
-                {/* <LightBox /> */}
+                <div>
+                    { this.state.showLightBox2 && <LightBox 
+                        title="新增失敗"
+                        text="您好，新增公司資訊失敗的原因可能是您未輸入欄位中的值，或是帳號正在創建中，如您確認欄位輸入值無誤，請你在兩秒後再次點擊確認送出"
+                        handleClose={this.handleCloseLightBox2}
+                    /> } 
+                    <StepTwo
+                    year={year} month={month} date={date} hour={hour} minute={minute}
+                    showCalendar={showCalendar} 
+                    submitSelectedTime={submitSelectedTime}
+                    timeSelectStatus={timeSelectStatus} 
+                    addCompany={this.addCompany} acount={this.state.acount}
+                    />
+                </div> }
             </div>
         )
     }

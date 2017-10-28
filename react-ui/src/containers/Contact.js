@@ -7,8 +7,7 @@ const Contact = (props) => {
     return (
       <div id="to-contact">
         <div className="contact">
-            <p className="contact_title">Contact Me</p>
-            
+        <p className="contact_title">Contact Me</p>
             <ContactInput />
         </div>
       </div>
