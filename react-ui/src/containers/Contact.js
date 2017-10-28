@@ -1,19 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { graphql } from 'react-apollo';
-import { compose } from 'react-apollo';
+// import { graphql } from 'react-apollo';
+// import { compose } from 'react-apollo';
 // import * as actions from './actions/actions';
 
 import ContactInput from '../components/contact/ContactInput';
 
 const Contact = (props) => {
-    const currentId = JSON.parse(localStorage.getItem('currentUserId'));
+   
+    // && currentId === null
     return (
       <div id="to-contact">
         <div className="contact">
         <p className="contact_title">Contact Me</p>
-            { !props.login && currentId === null && <ContactInput /> }
+            { !props.login  && <ContactInput /> }
         </div>
       </div>
     )

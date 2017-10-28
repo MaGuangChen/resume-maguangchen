@@ -7,12 +7,14 @@ import Portifolio from './containers/Portifolio';
 import './styles/App.css';
 
 const App = (props) => {
+  const currentId = localStorage.getItem('currentUserId');
+  console.log(currentId);
   return (
     <div className="App">
       <Intro />
       <About />
       <Portifolio />
-      <Contact />
+      { currentId === null && <Contact /> }
     </div>
   );
 }

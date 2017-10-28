@@ -55,7 +55,7 @@ class ContactInput extends Component {
     }
 
     handleCreateAcount() {
-        const { userInfo, data, dispatch } = this.props;
+        const { userInfo, data } = this.props;
         const { acount, password } = userInfo;
         let checkAcountStatus = false;
         if(data.users){
