@@ -3,9 +3,12 @@ import { connect } from 'react-redux';
 import { graphql } from 'react-apollo';
 import { compose } from 'react-apollo';
 
+import * as actions from '../../actions/actions';
+
 import fetchUsers from '../../queries/fetchUsers';
 import signUpMutation from '../../mutations/singup';
 import addCompanyMutation from '../../mutations/addCompany';
+
 
 
 import StepOne from './input/StepOne';
@@ -39,6 +42,7 @@ class ContactInput extends Component {
             if(users){
                 const currentUser = users.filter(u => u.acount === currentAcount);    
                 this.setState({ currentId: currentUser[0].id });
+                localStorage.setItem('currentUserId', currentUser[0].id);
             }
         }
     }
@@ -51,7 +55,7 @@ class ContactInput extends Component {
     }
 
     handleCreateAcount() {
-        const { userInfo, data } = this.props;
+        const { userInfo, data, dispatch } = this.props;
         const { acount, password } = userInfo;
         let checkAcountStatus = false;
         if(data.users){
@@ -75,13 +79,13 @@ class ContactInput extends Component {
                 .then(() => {
                     this.props.data.refetch()
                 })
-                this.setState({ currentAcount: acount });
+                this.setState({ currentAcount: acount, step: 2 });
             }
         }
     }
     
     addCompany() {
-        const { year, month, date, hour, minute, companyInfo } = this.props;
+        const { year, month, date, hour, minute, companyInfo, dispatch } = this.props;
         const { name, position, salary } = companyInfo;
         const minSalary = salary[0];
         const maxSalary = salary[1];
@@ -100,6 +104,7 @@ class ContactInput extends Component {
                     maxSalary
                 }
             })
+            dispatch(actions.loginStatus(true));
         } else {
             this.setState({ showLightBox2: true });
         }

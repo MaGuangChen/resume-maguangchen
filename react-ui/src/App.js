@@ -1,6 +1,4 @@
 import React from 'react';
-import { graphql } from 'react-apollo';
-import fetchUsers from './queries/fetchUsers';
 
 import Intro from './containers/Intro';
 import About from './containers/About';
@@ -19,4 +17,4 @@ const App = (props) => {
   );
 }
 
-export default graphql(fetchUsers)(App);
+export default App;
