@@ -807,6 +807,21 @@
     font-size: 3rem;
     text-shadow: 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 15px #fff, 0px 0px 3px #fff;
     height: 65px; }
+    .message_title span {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      border: 1px solid;
+      border-radius: 25px;
+      font-size: 2rem;
+      padding: 5px; }
+      .message_title span:hover {
+        background: rgba(255, 255, 255, 0.2);
+        text-shadow: 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 15px #fff, 0px 0px 3px #fff;
+        box-shadow: 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 15px #fff, 0px 0px 3px #fff; }
   .message_content {
     background: rgba(0, 0, 0, 0.5);
     padding: 20px;

@@ -29,7 +29,7 @@ const Message = () => {
             <div className="login-background"></div>
             <div className="message">
                 <div className="message_title">
-                Message
+                <p>Message</p><span>X</span>
                 </div>
                 <div className="message_content">
                     {message}
