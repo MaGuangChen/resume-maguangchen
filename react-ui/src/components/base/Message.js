@@ -1,4 +1,5 @@
 import React from 'react';
+
 import headPhoto from '../../images/maguangchen.jpg';
 import userDefaultPhoto from '../../images/user-default-photo.png';
 
@@ -44,7 +45,7 @@ const Message = () => {
                 </div>
                 <div className="message_input">
                     <input type="text" placeholder="輸入訊息" />
-                    <button>send</button>
+                    <div className="message_input_button">送出</div>
                 </div>
             </div>
         </div>
