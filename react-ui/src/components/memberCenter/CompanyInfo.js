@@ -31,7 +31,8 @@ const ContentSpan = (props) => {
     return (
         <span>
             <p className="member-center_companyArea_block_content_title">
-                { title }:
+            <i className="fa fa-pencil-square-o" aria-hidden="true"></i>
+            { title }:
             </p>
             <p className="member-center_companyArea_block_content_text">
                 { text }

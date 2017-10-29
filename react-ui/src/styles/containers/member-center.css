@@ -25,6 +25,8 @@
         .member-center_companyArea_block_content p {
           display: inline-block;
           padding: 10px 5px; }
+          .member-center_companyArea_block_content p i {
+            margin-right: 10%; }
         .member-center_companyArea_block_content_title {
           width: 25%;
           margin-right: 5%;
