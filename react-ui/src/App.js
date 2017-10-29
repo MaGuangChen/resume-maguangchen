@@ -4,13 +4,20 @@ import Intro from './containers/Intro';
 import About from './containers/About';
 import Contact from './containers/Contact';
 import Portifolio from './containers/Portifolio';
+import Login from './components/base/Login';
+
 import './styles/App.css';
 
 const App = (props) => {
   const currentId = localStorage.getItem('currentUserId');
-  console.log(currentId);
   return (
     <div className="App">
+      {/* <div>
+        <div className="login-background">
+          Login
+        </div>
+        <Login />
+      </div> */}
       <Intro />
       <About />
       <Portifolio />

@@ -1,0 +1,54 @@
+@import '../base/box&text-shadow.scss';
+$defaultBackground : rgba(0,0,0,0.5);
+
+.member-center {
+    background: linear-gradient(to right, #fc5c7d, #6a82fb);
+    color: white;
+    text-align: center;
+    &_greeting {
+        font-size: 3rem;
+        padding: 25px;
+        background: $defaultBackground;
+        text-shadow: $box-text-shadow;
+    }
+    &_companyArea {
+        padding: 0 2%;
+        background: $defaultBackground;
+        &_block {
+            display: inline-block;
+            padding: 2%;
+            &_content {
+                box-shadow: $box-text-shadow;
+                background: rgba(255,255,255,.2);
+                padding: 3%;
+                &_company-name {
+                    font-size: 2rem;
+                    margin-bottom: 2rem;
+                    font-weight: 600;
+                    text-shadow: $box-text-shadow;
+                }
+                p {
+                    display: inline-block;
+                    padding: 10px 5px;
+                    i {
+                        // position: absolute;
+                        // right: 15%;  
+                        // margin-left: 10%;
+                        
+                    }
+                }
+                &_title {
+                    width: 25%;
+                    margin-right: 5%;
+                    font-size: 1.5rem;
+                    text-align: left;
+                }
+                &_text {
+                    width: 70%;
+                    box-shadow: $box-text-shadow;
+                    font-size: 1rem;
+                } 
+            }
+        }
+    }
+}

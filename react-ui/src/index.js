@@ -8,7 +8,7 @@ import ApolloClient from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
 
 import App from './App';
-
+import User from './containers/MemberCenter';
 
 let store = configure();
 let unsubscribe = store.subscribe(() => {
@@ -26,9 +26,10 @@ const client = new ApolloClient({
 ReactDOM.render(
   <ApolloProvider store={store} client={client}>
       <ConnectedRouter history={ createHistory() } >
-      <div>
-	      <Route exact path={process.env.PUBLIC_URL + '/'} component={App}/>
-	    </div>
+        <div>
+	          <Route exact path={process.env.PUBLIC_URL + '/'} component={App}/>
+            <Route exact path={process.env.PUBLIC_URL + '/user'} component={User}/>
+	      </div>
       </ConnectedRouter>
   </ApolloProvider>,
   document.getElementById('root')

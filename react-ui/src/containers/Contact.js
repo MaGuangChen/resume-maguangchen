@@ -8,8 +8,6 @@ import { connect } from 'react-redux';
 import ContactInput from '../components/contact/ContactInput';
 
 const Contact = (props) => {
-   
-    // && currentId === null
     return (
       <div id="to-contact">
         <div className="contact">
@@ -23,5 +21,3 @@ const Contact = (props) => {
 export default connect((state) => {
     return { login: state.login.login }
 })(Contact);
-
-//currentUser !== null contactinput can show

@@ -1,0 +1,36 @@
+.member-center {
+  background: linear-gradient(to right, #fc5c7d, #6a82fb);
+  color: white;
+  text-align: center; }
+  .member-center_greeting {
+    font-size: 3rem;
+    padding: 25px;
+    background: rgba(0, 0, 0, 0.5);
+    text-shadow: 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 15px #fff, 0px 0px 3px #fff; }
+  .member-center_companyArea {
+    padding: 0 2%;
+    background: rgba(0, 0, 0, 0.5); }
+    .member-center_companyArea_block {
+      display: inline-block;
+      padding: 2%; }
+      .member-center_companyArea_block_content {
+        box-shadow: 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 15px #fff, 0px 0px 3px #fff;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 3%; }
+        .member-center_companyArea_block_content_company-name {
+          font-size: 2rem;
+          margin-bottom: 2rem;
+          font-weight: 600;
+          text-shadow: 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 15px #fff, 0px 0px 3px #fff; }
+        .member-center_companyArea_block_content p {
+          display: inline-block;
+          padding: 10px 5px; }
+        .member-center_companyArea_block_content_title {
+          width: 25%;
+          margin-right: 5%;
+          font-size: 1.5rem;
+          text-align: left; }
+        .member-center_companyArea_block_content_text {
+          width: 70%;
+          box-shadow: 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 15px #fff, 0px 0px 3px #fff;
+          font-size: 1rem; }
