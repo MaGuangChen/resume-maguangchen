@@ -1,0 +1,66 @@
+.navgation-bar {
+    text-align: center;
+    &_icon {
+        background: rgba(0,0,0,0.5);
+        color: white;
+        position: fixed;
+        top: 5%;
+        right: 5%;
+        z-index: 3;
+        border: 1px solid;
+        width: 50px;
+        height: 50px;
+        padding: 10px;
+        border-radius: 25px;
+        cursor: pointer;
+        &:hover {
+            // background: rgba(255,255,255,0.5);
+            text-shadow:  $box-text-shadow;
+            box-shadow:  $box-text-shadow; 
+        }
+    }
+    &_content {
+        position: fixed;
+        z-index: 3;
+        background: rgba(0,0,0,0.6);
+        top: 0;
+        right:0;
+        bottom: 0;
+        width: 40%;
+        &_close {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            border: 1px solid;
+            border-radius: 25px;
+            font-size: 2rem;
+            color: white;
+            padding: 5px;
+            &:hover {
+                background: rgba(255,255,255,0.2);
+                text-shadow:  $box-text-shadow;
+                box-shadow:  $box-text-shadow; 
+            }
+        }
+        &_link-block {
+            margin: 40% 0;
+        }
+        &_link {
+            font-size: 3rem;
+            display: block;
+            color: white;
+            padding: 10px;
+            box-shadow:  $box-text-shadow; 
+            &:hover {
+                text-decoration: none;
+                color: white;
+                background: rgba(255,255,255,0.2);
+                text-shadow:  $box-text-shadow;
+                box-shadow:  $box-text-shadow; 
+            }
+        }
+    }
+}

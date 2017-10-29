@@ -5,13 +5,17 @@ import About from './containers/About';
 import Contact from './containers/Contact';
 import Portifolio from './containers/Portifolio';
 import Login from './components/base/Login';
+import NavgationBar from './containers/NavgationBar';
 
 import './styles/App.css';
 
+
 const App = (props) => {
   const currentId = localStorage.getItem('currentUserId');
+
   return (
     <div className="App">
+      <NavgationBar />
       {/* <div>
         <div className="login-background">
           Login

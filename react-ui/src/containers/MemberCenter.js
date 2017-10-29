@@ -12,7 +12,7 @@ const MemberCenter = () => {
             <div className="member-center_companyArea">
                 <CompanyInfo />
             </div>
-            <Message />
+            {/* <Message /> */}
         </div>
     );
 }
