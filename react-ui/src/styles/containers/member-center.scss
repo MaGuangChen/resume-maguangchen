@@ -31,7 +31,7 @@ $defaultBackground : rgba(0,0,0,0.5);
                     display: inline-block;
                     padding: 10px 5px;
                     i {
-                        margin-right: 10%;
+                        margin-right: 2%;
                         
                     }
                 }
@@ -45,6 +45,11 @@ $defaultBackground : rgba(0,0,0,0.5);
                     width: 70%;
                     box-shadow: $box-text-shadow;
                     font-size: 1rem;
+                }
+                &_message {
+                    i {
+                        color: #513DDC;
+                    }
                 } 
             }
         }

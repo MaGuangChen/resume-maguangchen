@@ -20,8 +20,10 @@ const CompanyInfo = () => {
                 <ContentSpan title="公司電話" text="02-25228647" />
                 <ContentSpan title="聯絡人" text="人資 馬廣辰 先生" />    
                 <ContentSpan title="聯絡信箱" text="kwn791122@gmail.com" />
+                <div className="member-center_companyArea_block_content_message">
+                    我的訊息<i className="fa fa-3x fa-comments" aria-hidden="true"></i>
+                </div>
             </div>
-        
         </div>
     );
 }

@@ -649,7 +649,7 @@
           display: inline-block;
           padding: 10px 5px; }
           .member-center_companyArea_block_content p i {
-            margin-right: 10%; }
+            margin-right: 2%; }
         .member-center_companyArea_block_content_title {
           width: 25%;
           margin-right: 5%;
@@ -659,6 +659,8 @@
           width: 70%;
           box-shadow: 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 15px #fff, 0px 0px 3px #fff;
           font-size: 1rem; }
+        .member-center_companyArea_block_content_message i {
+          color: #513DDC; }
 
 .login {
   background: linear-gradient(to right, #fc5c7d, #6a82fb);
