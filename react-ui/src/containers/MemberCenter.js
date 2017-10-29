@@ -1,6 +1,7 @@
 import React from 'react';
 
-import CompanyInfo from './../components/memberCenter/CompanyInfo';
+import CompanyInfo from '../components/memberCenter/CompanyInfo';
+import Message from '../components/base/Message';
 
 const MemberCenter = () => {
     return (
@@ -10,11 +11,8 @@ const MemberCenter = () => {
             </div>
             <div className="member-center_companyArea">
                 <CompanyInfo />
-                <CompanyInfo />
-                <CompanyInfo />
-                <CompanyInfo />
             </div>
-            {/* <input type="text" placeholder="修改公司名稱" /> */}
+            <Message />
         </div>
     );
 }
