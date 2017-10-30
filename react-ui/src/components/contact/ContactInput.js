@@ -9,8 +9,6 @@ import fetchUsers from '../../queries/fetchUsers';
 import signUpMutation from '../../mutations/singup';
 import addCompanyMutation from '../../mutations/addCompany';
 
-
-
 import StepOne from './input/StepOne';
 import StepTwo from './input/StepTwo';
 import LightBox from '../base/LightBox';

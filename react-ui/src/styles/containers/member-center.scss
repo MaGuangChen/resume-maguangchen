@@ -5,6 +5,13 @@ $defaultBackground : rgba(0,0,0,0.5);
     background: linear-gradient(to right, #fc5c7d, #6a82fb);
     color: white;
     text-align: center;
+    &_loading {
+        padding: 25px;
+        background: $defaultBackground;
+        text-shadow: $box-text-shadow;
+        font-size: 3rem;
+        margin: 25%;
+    }
     &_greeting {
         font-size: 3rem;
         padding: 25px;

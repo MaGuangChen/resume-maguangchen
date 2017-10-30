@@ -137,3 +137,73 @@ export const showMenu = (status) => {
 		status
 	}
 }
+
+export const showLoginSussced = (status) => {
+	return {
+		type: 'SHOW_LOGIN_SUSSCED',
+		status
+	}
+}
+
+export const showLoginError = (status) => {
+	return {
+		type: 'SHOW_LOGIN_ERROR',
+		status
+	}
+}
+
+export const showLogoutSussced = (status) => {
+	return {
+		type: 'SHOW_LOGOUT_SUSSCED',
+		status
+	}
+}
+
+export const editingPosition = (status) => {
+	return {
+		type: 'EDITING_POSITION',
+		status
+	}
+}
+
+export const editingReservationDate = (status) => {
+	return {
+		type: 'EDITING_RESERVATION_DATE',
+		status
+	}
+}
+
+export const editingSalaryBudget = (status) => {
+	return {
+		type: 'EDITING_SALARY_BUDGET',
+		status
+	}
+}
+
+export const editingCompanylocation = (status) => {
+	return {
+		type: 'EDITING_COMPANY_LOCATION',
+		status
+	}
+}
+
+export const editingCompanyPhone = (status) => {
+	return {
+		type: 'EDITING_COMPANY_PHONE',
+		status
+	}
+}
+
+export const editingContactPeople = (status) => {
+	return {
+		type: 'EDITING_CONTACT_PEOPLE',
+		status
+	}
+}
+
+export const editingEmail = (status) => {
+	return {
+		type: 'EDITING_EMAIL',
+		status
+	}
+}

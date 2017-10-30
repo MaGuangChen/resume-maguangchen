@@ -4,11 +4,13 @@ import { connect } from 'react-redux';
 import NavLink from '../components/base/NavLink';
 import * as actions from '../actions/actions';
 
+
 const NavgationBar = (props) => {
     const { dispatch, showMenu } = props;
     const handleShowMenu = () => {
         dispatch(actions.showMenu(true));
     }
+
     return (
         <div className="navgation-bar">
             { !showMenu && 
@@ -28,5 +30,7 @@ const NavgationBar = (props) => {
 }
 
 export default connect((state) => {
-    return { showMenu: state.showMenu }
+    return { 
+        showMenu: state.menuStatus.showMenu, 
+    }
 })(NavgationBar);

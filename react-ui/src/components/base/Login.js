@@ -1,10 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import LightBox from './LightBox';
 import * as actions from '../../actions/actions';
 
 const Login = (props) => {
-    const { dispatch, data, password, acount } = props;
+    const { dispatch, data, password, acount, loginError } = props;
     const handleShowLogin = () => {
         dispatch(actions.showLogin(false));
     }
@@ -20,14 +21,38 @@ const Login = (props) => {
 
     const loginSubmit = () => {
         const user = data.users.filter(u => u.acount === acount && u.password === password);
-        if(user.length === 1) {
-            localStorage.setItem('currentUserId', user[0].id);
-            dispatch(actions.setCurrentUser(user[0].id));
+
+        if(user){
+            if(user.length === 1) {
+                localStorage.setItem('currentUserId', user[0].id);
+                dispatch(actions.setCurrentUser(user[0].id));
+                dispatch(actions.showMenu(false));
+                dispatch(actions.showLogin(false));
+                dispatch(actions.loginStatus(true));
+                dispatch(actions.showLoginSussced(true));
+
+                window.location.href='/user';
+            } else {
+                dispatch(actions.showLoginError(true));
+            }
+        } else {
+            dispatch(actions.showLoginError(true));
         }
     }
 
+    const closeLoginErrorLightBox = () => {
+        dispatch(actions.showLoginError(false));
+    }
+    
     return (
         <div className="login">
+            { loginError &&
+              <LightBox
+               title="登入失敗"
+               text="您好，帳號密碼有誤"
+               handleClose={closeLoginErrorLightBox}
+               />
+            }
             <div className="login_title">
                 <p>登入Login</p>
                 <span onClick={handleShowLogin}>X</span>
@@ -63,5 +88,9 @@ const Login = (props) => {
 }
 
 export default connect((state) => {
-    return { acount: state.login.acount, password: state.login.password }
+    return { 
+        acount: state.login.acount, 
+        password: state.login.password,
+        loginError: state.menuStatus.showLoginError, 
+    }
 })(Login);

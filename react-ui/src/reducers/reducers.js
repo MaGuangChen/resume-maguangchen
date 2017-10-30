@@ -156,10 +156,88 @@ export const loginReducer = (state = loginDefaultState, action) => {
     }
 }
 
-export const menuReducer = (state = false, action) => {
+const menuStatus = {
+  showMenu: false,
+  showLoginSussced: false,
+  showLoginError: false,
+  showLogoutSussced: false,
+}
+
+export const menuReducer = (state = menuStatus, action) => {
     switch(action.type) {
       case 'SHOW_MENU' :
-        return action.status;
+        return {
+          ...state,
+          showMenu: action.status
+        };
+      case 'SHOW_LOGIN_SUSSCED' :
+        return  {
+          ...state,
+          showLoginSussced: action.status
+        };
+      case 'SHOW_LOGIN_ERROR' :
+        return  {
+          ...state,
+          showLoginError: action.status
+        };
+      case 'SHOW_LOGOUT_SUSSCED' :
+        return {
+          ...state,
+          showLogoutSussced: action.status,
+        };
+      default :
+        return state;
+    }
+}
+
+const userPageEditingStatus = {
+    position: false,
+    reservationDate: false,
+    salary: false,
+    location: false,
+    phone: false,
+    contactPeople: false,
+    eMail: false,
+}
+export const userPageEditingReducer = (
+  state = userPageEditingStatus, 
+  action) => {
+    switch(action.type) {
+      case 'EDITING_POSITION' :
+        return {
+          ...state,
+          position: action.status
+        };
+      case 'EDITING_RESERVATION_DATE' :
+        return {
+          ...state,
+          reservationDate: action.status
+        };
+      case 'EDITING_SALARY_BUDGET' :
+        return {
+          ...state,
+          salary: action.status
+        };
+      case 'EDITING_COMPANY_LOCATION' :
+        return {
+          ...state,
+          location: action.status
+        };
+      case 'EDITING_COMPANY_PHONE' :
+        return {
+          ...state,
+          phone: action.status
+        };
+      case 'EDITING_CONTACT_PEOPLE' :
+        return {
+          ...state,
+          contactPeople: action.status
+        };
+      case 'EDITING_EMAIL' :
+        return {
+          ...state,
+          eMail: action.status
+        };
       default :
         return state;
     }

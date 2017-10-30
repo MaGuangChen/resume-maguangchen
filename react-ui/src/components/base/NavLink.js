@@ -4,14 +4,27 @@ import { Link } from 'react-router-dom';
 
 import * as actions from '../../actions/actions';
 
+
 const NavLink = (props) => {
     const { login, dispatch } = props;
+
     const handleShowMenu = () => {
         dispatch(actions.showMenu(false));
     }
     const handleShowLogin = () => {
         dispatch(actions.showLogin(true));
     }
+    const toContactMe = () => {
+        dispatch(actions.showMenu(false));
+    }
+    const removeCurrentUserId = () => {
+        localStorage.removeItem('currentUserId');
+        dispatch(actions.showMenu(false));
+        dispatch(actions.loginStatus(false));
+        dispatch(actions.showLogoutSussced(true));
+    }
+    
+
     return (
         <div className="navgation-bar_content">
             <span
@@ -25,6 +38,7 @@ const NavLink = (props) => {
                     前往您的帳戶管理頁面
                 </Link>
                 <p 
+                  onClick={removeCurrentUserId}
                   className="navgation-bar_content_link">
                     登出 Logout
                 </p>
@@ -35,7 +49,9 @@ const NavLink = (props) => {
                   className="navgation-bar_content_link" >
                   登入 Login
                 </p>
-                <a className="navgation-bar_content_link" to="/user"> 創建帳號 Signup</a>
+                <a onClick={toContactMe} className="navgation-bar_content_link" href="#to-contact"> 
+                    創建帳號 Signup
+                </a>
             </div> }
         </div>
     );

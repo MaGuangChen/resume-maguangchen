@@ -2,6 +2,12 @@
   background: linear-gradient(to right, #fc5c7d, #6a82fb);
   color: white;
   text-align: center; }
+  .member-center_loading {
+    padding: 25px;
+    background: rgba(0, 0, 0, 0.5);
+    text-shadow: 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 15px #fff, 0px 0px 3px #fff;
+    font-size: 3rem;
+    margin: 25%; }
   .member-center_greeting {
     font-size: 3rem;
     padding: 25px;
