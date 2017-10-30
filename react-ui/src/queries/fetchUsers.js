@@ -5,6 +5,7 @@ export default gql`
         users {
             id
             acount
+            password
         }
     }
 `;

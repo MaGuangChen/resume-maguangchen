@@ -1,18 +1,32 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import NavLink from '../components/base/NavLink';
+import * as actions from '../actions/actions';
 
 const NavgationBar = (props) => {
+    const { dispatch, showMenu } = props;
+    const handleShowMenu = () => {
+        dispatch(actions.showMenu(true));
+    }
     return (
         <div className="navgation-bar">
-            <div className="navgation-bar_icon">
+            { !showMenu && 
+            <div 
+            onClick={handleShowMenu} 
+            className="navgation-bar_icon">
                 <i className="fa fa-2x fa-bars" aria-hidden="true"></i>
-            </div>
+            </div> }
             <div>
-                {/* <NavLink /> */}
+                { showMenu && 
+                  <NavLink 
+                  login={props.login}
+                  /> }
             </div>
         </div>
     );
 }
 
-export default NavgationBar;
+export default connect((state) => {
+    return { showMenu: state.showMenu }
+})(NavgationBar);

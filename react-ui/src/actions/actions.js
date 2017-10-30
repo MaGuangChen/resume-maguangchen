@@ -103,6 +103,19 @@ export const loginStatus = (status) => {
 	}
 }
 
+export const userLoginAcount = (acount) => {
+	return {
+		type: 'USER_LOGIN_ACOUNT',
+		acount
+	}
+}
+
+export const userLoginPassword = (password) => {
+	return {
+		type: 'USER_LOGIN_PASSWORD',
+		password
+	}
+}
 
 export const showLogin = (status) => {
 	return {
@@ -115,5 +128,12 @@ export const setCurrentUser = (id) => {
 	return {
 		type: 'SET_CURRENT_USER',
 		id
+	}
+}
+
+export const showMenu = (status) => {
+	return {
+		type: 'SHOW_MENU',
+		status
 	}
 }

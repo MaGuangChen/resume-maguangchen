@@ -119,6 +119,8 @@ const loginDefaultState = {
     login: false,
     showLogin: false,
     currentUser: null,
+    acount: null,
+    password: null
 }
 
 export const loginReducer = (state = loginDefaultState, action) => {
@@ -138,6 +140,25 @@ export const loginReducer = (state = loginDefaultState, action) => {
            ...state,
            currentUser: action.id
           };
+      case 'USER_LOGIN_ACOUNT' :
+         return {
+           ...state,
+           acount: action.acount
+          };
+      case 'USER_LOGIN_PASSWORD' :
+         return {
+           ...state,
+           password: action.password
+          };
+      default :
+        return state;
+    }
+}
+
+export const menuReducer = (state = false, action) => {
+    switch(action.type) {
+      case 'SHOW_MENU' :
+        return action.status;
       default :
         return state;
     }

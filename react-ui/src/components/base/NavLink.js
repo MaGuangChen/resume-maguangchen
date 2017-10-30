@@ -1,26 +1,44 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-const NavLink = () => {
+import * as actions from '../../actions/actions';
+
+const NavLink = (props) => {
+    const { login, dispatch } = props;
+    const handleShowMenu = () => {
+        dispatch(actions.showMenu(false));
+    }
+    const handleShowLogin = () => {
+        dispatch(actions.showLogin(true));
+    }
     return (
         <div className="navgation-bar_content">
-            <span className="navgation-bar_content_close">X</span>
-            <div className="navgation-bar_content_link-block">
+            <span
+            onClick={handleShowMenu} 
+            className="navgation-bar_content_close">
+                X
+            </span>
+            { login.login && <div className="navgation-bar_content_link-block">
                 <Link 
                   className="navgation-bar_content_link" to="/user">
                     前往您的帳戶管理頁面
                 </Link>
-                <Link 
-                  className="navgation-bar_content_link" to="/">
+                <p 
+                  className="navgation-bar_content_link">
                     登出 Logout
-                </Link>
-            </div>
-            {/* <div>
-                <Link className="navgation-bar_content_link" to="/user">登入 Login</Link>
-                <Link className="navgation-bar_content_link" to="/user"> 創建帳號 Signup</Link>
-            </div> */}
+                </p>
+            </div> }
+            { !login.login && <div className="navgation-bar_content_link-block">
+                <p 
+                  onClick={handleShowLogin} 
+                  className="navgation-bar_content_link" >
+                  登入 Login
+                </p>
+                <a className="navgation-bar_content_link" to="/user"> 創建帳號 Signup</a>
+            </div> }
         </div>
     );
 }
 
-export default NavLink;
+export default connect()(NavLink);
