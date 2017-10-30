@@ -115,10 +115,11 @@ export const calendarChangeReducer = (state = defaultCalendar, action) => {
     }
 }
 
+const currentId = localStorage.getItem('currentUserId');
 const loginDefaultState = {
-    login: false,
+    login: currentId === null ? false : true,
     showLogin: false,
-    currentUser: null,
+    currentUser: localStorage.getItem('currentUserId'),
     acount: null,
     password: null
 }

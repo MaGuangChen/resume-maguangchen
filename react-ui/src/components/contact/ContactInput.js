@@ -35,7 +35,6 @@ class ContactInput extends Component {
 
     componentWillReceiveProps(nextProps){
         const users = nextProps.data.users;
-        console.log(users);
 
         const currentAcount = this.state.currentAcount;
         if(currentAcount){

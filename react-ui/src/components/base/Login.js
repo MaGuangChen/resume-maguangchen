@@ -5,8 +5,6 @@ import * as actions from '../../actions/actions';
 
 const Login = (props) => {
     const { dispatch, data, password, acount } = props;
-
-    console.log(data.users);
     const handleShowLogin = () => {
         dispatch(actions.showLogin(false));
     }
@@ -22,8 +20,8 @@ const Login = (props) => {
 
     const loginSubmit = () => {
         const user = data.users.filter(u => u.acount === acount && u.password === password);
-        console.log(user);
-        if(user.length === 1 && user.id) {
+        if(user.length === 1) {
+            localStorage.setItem('currentUserId', user[0].id);
             dispatch(actions.setCurrentUser(user[0].id));
         }
     }

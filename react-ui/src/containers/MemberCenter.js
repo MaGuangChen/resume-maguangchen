@@ -1,9 +1,14 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { graphql } from 'react-apollo';
 
 import CompanyInfo from '../components/memberCenter/CompanyInfo';
 import Message from '../components/base/Message';
 
-const MemberCenter = () => {
+import fetchUser from '../queries/fetchUser';
+
+const MemberCenter = (props) => {
+    console.log(props.data);
     return (
         <div className="member-center">
             <div className="member-center_greeting">
@@ -17,4 +22,13 @@ const MemberCenter = () => {
     );
 }
 
-export default MemberCenter;
+// export default MemberCenter;
+
+const memberCenterWithGraphQL = graphql(fetchUser, { 
+    options: { 
+      variables: { id: localStorage.getItem('currentUserId') } }
+    }, { name: "user" } )(MemberCenter);
+
+export default connect((state) => {
+  return { login: state.login }
+})(memberCenterWithGraphQL);
