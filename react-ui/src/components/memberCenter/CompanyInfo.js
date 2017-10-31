@@ -6,6 +6,7 @@ import { compose } from 'react-apollo';
 
 import ContentSpan from './companyInfo/ContenSpan';
 import editMutation from '../../mutations/editCompany';
+import * as actions from '../../actions/actions';
 
 const CompanyInfo = (props) => {
     const company = props.user.company[0];
@@ -33,6 +34,10 @@ const CompanyInfo = (props) => {
     const phoneNumber = company.phoneNumber ? company.phoneNumber : '新增您的公司連絡電話';
     const contactPeople = company.contactPeople ? company.contactPeople : '新增您公司的聯絡人';
 
+    const handleShowMessage = () => {
+        props.dispatch(actions.showMessage(true));
+    }
+
     return (
         <div className="member-center_companyArea_block">
             <div className="member-center_companyArea_block_content">
@@ -56,9 +61,9 @@ const CompanyInfo = (props) => {
                     title="薪資範圍" 
                     text={salaryRange} 
                     mutate={props.minSalary}
-                    mutate2={props.maxSalary}
+                    maxSalaryMutate={props.maxSalary}
                     variables={ { id, minSalary: ''} }
-                    variables2={ { id, maxSalary: '' } }
+                    maxSalaryVariables={ { id, maxSalary: ''} }
                     keyName={'salary'}
                 />
                 <ContentSpan 
@@ -82,12 +87,11 @@ const CompanyInfo = (props) => {
                     variables={ { id, contactPeople: ''} }
                     keyName={'contactPeople'}
                 />    
-                <div className="member-center_companyArea_block_content_message">
+                <div
+                 onClick={handleShowMessage}
+                 className="member-center_companyArea_block_content_message">
                     Message
-                    <i 
-                      className="fa fa-3x fa-comments-o" 
-                      aria-hidden="true">
-                    </i>
+                    <i className="fa fa-3x fa-comments-o" aria-hidden="true"></i>
                 </div>
             </div>
         </div>
@@ -104,6 +108,4 @@ const infoWithMutation = compose(
     graphql(editMutation.reservationDate, { name: 'reservationDate' }),
 )(CompanyInfo);
 
-export default connect((state) => {
-    return { editStatus: state.userEditStatus }
-})(infoWithMutation);
+export default connect()(infoWithMutation);

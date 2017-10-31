@@ -159,51 +159,16 @@ export const showLogoutSussced = (status) => {
 	}
 }
 
-export const editingPosition = (status) => {
+export const showMessage = (status) => {
 	return {
-		type: 'EDITING_POSITION',
+		type: 'SHOW_MESSAGE',
 		status
 	}
 }
 
-export const editingReservationDate = (status) => {
+export const userInputMessage = (text) => {
 	return {
-		type: 'EDITING_RESERVATION_DATE',
-		status
-	}
-}
-
-export const editingSalaryBudget = (status) => {
-	return {
-		type: 'EDITING_SALARY_BUDGET',
-		status
-	}
-}
-
-export const editingCompanylocation = (status) => {
-	return {
-		type: 'EDITING_COMPANY_LOCATION',
-		status
-	}
-}
-
-export const editingCompanyPhone = (status) => {
-	return {
-		type: 'EDITING_COMPANY_PHONE',
-		status
-	}
-}
-
-export const editingContactPeople = (status) => {
-	return {
-		type: 'EDITING_CONTACT_PEOPLE',
-		status
-	}
-}
-
-export const editingEmail = (status) => {
-	return {
-		type: 'EDITING_EMAIL',
-		status
+		type: 'USER_INPUT_MESSAGE',
+		text
 	}
 }

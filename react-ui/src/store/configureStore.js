@@ -4,7 +4,7 @@ import createHistory from 'history/createBrowserHistory';
 import { routerReducer, routerMiddleware } from 'react-router-redux';
 import { changeAboutSectionReducer, calendarChangeReducer, 
   handleCompanyInfoReducer, createAcountReducer, loginReducer
-, menuReducer, userPageEditingReducer } from '../reducers/reducers';
+, menuReducer, messageReducer } from '../reducers/reducers';
 
 const history = createHistory();
 export const configure = (initialState = {}) => {
@@ -15,7 +15,7 @@ export const configure = (initialState = {}) => {
       userInfo: createAcountReducer,
       login: loginReducer,
       menuStatus: menuReducer,
-      userEditStatus: userPageEditingReducer,
+      message: messageReducer,
       router: routerReducer
     });
     let store = redux.createStore(reducer, initialState, redux.compose(

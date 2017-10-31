@@ -10,7 +10,7 @@ import TimePeriod from '../CalendarComponent/TimePeriod';
 
 const Calendar = (props) => {
   const { year, month, date, timeSelectStatus, showCalendar, 
-    page, handleReservationDate } = props;
+     page, handleReservationDate } = props;
   const momentRange = extendMoment(moment);
   const weekEveryMonth = () => {
     const firstWeek = momentRange(`${year}-${month}`).startOf('month').week();
@@ -55,7 +55,7 @@ const Calendar = (props) => {
               month={month}
               date={date}
               showCalendar={showCalendar}
-              page='user'
+              page={page}
               handleReservationDate={handleReservationDate}
             /> 
           }

@@ -190,55 +190,23 @@ export const menuReducer = (state = menuStatus, action) => {
     }
 }
 
-const userPageEditingStatus = {
-    position: '',
-    reservationDate: '',
-    salary: '',
-    location: '',
-    phone: '',
-    contactPeople: '',
-    eMail: '',
+const message = {
+  showMessage: false,
+  userInputMessage: '',
 }
-export const userPageEditingReducer = (
-  state = userPageEditingStatus, 
-  action) => {
-    switch(action.type) {
-      case 'EDITING_POSITION' :
-        return {
-          ...state,
-          position: action.status
-        };
-      case 'EDITING_RESERVATION_DATE' :
-        return {
-          ...state,
-          reservationDate: action.status
-        };
-      case 'EDITING_SALARY_BUDGET' :
-        return {
-          ...state,
-          salary: action.status
-        };
-      case 'EDITING_COMPANY_LOCATION' :
-        return {
-          ...state,
-          location: action.status
-        };
-      case 'EDITING_COMPANY_PHONE' :
-        return {
-          ...state,
-          phone: action.status
-        };
-      case 'EDITING_CONTACT_PEOPLE' :
-        return {
-          ...state,
-          contactPeople: action.status
-        };
-      case 'EDITING_EMAIL' :
-        return {
-          ...state,
-          eMail: action.status
-        };
-      default :
-        return state;
-    }
+export const messageReducer = (state = message, action) => {
+  switch(action.type) {
+    case 'SHOW_MESSAGE' :
+      return {
+        ...state,
+        showMessage: action.status
+      };
+    case 'USER_INPUT_MESSAGE' :
+      return {
+        ...state,
+        userInputMessage: action.text
+      };
+    default :
+      return state;
+  }
 }

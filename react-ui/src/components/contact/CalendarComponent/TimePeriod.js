@@ -37,7 +37,6 @@ const TimePeriod = (props) => {
            <select onChange={changeMinutes} className="time-period_select">{ minutesOption }</select>
          </div>
          <div onClick={submitSelectTime} className="calendar_submit">確認所選日期與時段</div>
-         <div className="calendar_des">已被選取時段: 09:00、10:00、12:00</div>   
       </div>
 	);
 }

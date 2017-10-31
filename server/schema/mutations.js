@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const userMutation = require('../mutation/userMutation');
 const companyMutation = require('../mutation/companyMutation');
 
-const { addUser, deleteUser, receiveNewMessage, sendMesage, 
+const { addUser, deleteUser, receiveNewMessage, sendMessage, 
 	addCompanyToUser } = userMutation;
 
 const { editCompanyName, editCompanyPosition, 
@@ -19,7 +19,7 @@ const mutation = new GraphQLObjectType({
   fields: {
 		addUser: addUser,
 		deleteUser: deleteUser,
-	  sendMesage : sendMesage,
+	  sendMessage : sendMessage,
 		receiveNewMessage: receiveNewMessage,
 	  addCompanyToUser: addCompanyToUser,
 	  deleteCompany: deleteCompany,

@@ -50,10 +50,19 @@ class PriceSlider extends Component {
   }
 
   render() {
-    const { minValue, maxValue, lowerValue, upperValue } = this.props;
+    const { minValue, maxValue, lowerValue, upperValue, page } = this.props;
+
+    let style = {}
+    if(page === 'user') {
+      style = {
+        background: 'none',
+        display: 'inline',
+        marginBottom: '1.5rem'
+      }
+    }
 
     return (
-      <div className="contact_input_timeNsalary_salary">
+      <div  style={style} className="contact_input_timeNsalary_salary">
         <div className="contact_input_timeNsalary_salary_title">
         <i className="fa fa-usd fa-2x" aria-hidden="true"></i>
         <p>NT</p>

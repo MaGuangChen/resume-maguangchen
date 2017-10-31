@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
 
+import SalarySlider from '../../contact/input/SalarySlider';
 import Calendar from '../../contact/input/Calendar';
 import * as actions from '../../../actions/actions';
 
@@ -18,6 +19,7 @@ class ContentSpan extends Component {
         this.sumbitInput = this.sumbitInput.bind(this);
         this.changeInputValue = this.changeInputValue.bind(this);
         this.handleReservationDate = this.handleReservationDate.bind(this);
+        this.handleSalaryMutate = this.handleSalaryMutate.bind(this);
     }
 
     showInput() {
@@ -26,9 +28,11 @@ class ContentSpan extends Component {
             this.setState({ showInput: !this.state.showInput });
         } else {
             const inputType = keyName === 'reservationDate' 
-            ? 'reservationDate' : 'salary'
+            ? 'reservationDate' : 'salary';
+
             this.setState( { inputType } );
             this.setState( { showInput: !this.state.showInput } );
+            
             if(inputType === 'reservationDate') {
                 const status = !this.props.showCalendar;
                 this.props.dispatch(actions.handleCalendar(status));
@@ -40,11 +44,10 @@ class ContentSpan extends Component {
         const value = this.state.text;
         let variables = this.props.variables;
         variables[`${this.props.keyName}`] = value
-
-        this.setState({ showInput: false });
         this.props.mutate({
             variables
         })
+        this.setState({ showInput: false });
     }
 
     changeInputValue(e){
@@ -75,10 +78,38 @@ class ContentSpan extends Component {
         })
     }
 
+    handleSalaryMutate() {
+        const { minSalary, maxSalary, 
+          variables, maxSalaryVariables } = this.props;
+        variables["minSalary"] = minSalary;
+        maxSalaryVariables["maxSalary"] = maxSalary;
+        this.props.mutate({
+            variables
+        })
+        this.props.maxSalaryMutate({
+            variables: maxSalaryVariables
+        })
+        this.setState({ showInput: false });
+        
+        const parseStr2Money = (value)=> {
+            let num = value.toString();
+            const pattern = /(-?\d+)(\d{3})/;
+            while(pattern.test(num)){
+              num = num.replace(pattern, "$1,$2");
+            }
+            return `$${num}`
+        };
+        const salaryRange = `${parseStr2Money(minSalary)} ~ ${parseStr2Money(maxSalary)}`;
+        this.setState({ text: salaryRange });
+    }
+
     render(){
         const { showInput, title, text, inputType } = this.state;
         const { year, month, date, timeSelectStatus, showCalendar } = this.props;      
-
+        const sliderButton = {
+            margin: '2rem 0',
+            width: '100%'
+        }
         return (
             <span>
                 <p className="member-center_companyArea_block_content_title">
@@ -117,6 +148,23 @@ class ContentSpan extends Component {
                         />
                     </div>
                 }
+                { showInput && inputType === 'salary' &&
+                    <div>
+                        <SalarySlider
+                            minValue={40000}
+                            maxValue={60000}
+                            lowerValue={45000}
+                            upperValue={48000}
+                            page="user"
+                        />
+                        <div 
+                            style={sliderButton}
+                            onClick={this.handleSalaryMutate}
+                            className="member-center_companyArea_block_content_input_button">
+                            確認
+                        </div>
+                    </div>
+                }
             </span>
         );
     }
@@ -132,5 +180,7 @@ export default connect((state) => {
       timeSelectStatus: state.calendar.timeSelectStatus,
       showCalendar: state.calendar.showCalendar,
       submitSelectedTime: state.calendar.submitSelectedTime,
+      minSalary: state.companyInfo.salary[0],
+      maxSalary: state.companyInfo.salary[1]
     }
   })(ContentSpan);

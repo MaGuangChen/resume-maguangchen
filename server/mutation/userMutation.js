@@ -27,15 +27,15 @@ const userMutation = {
             return user.remove({ _id: id });
         }
     },
-    sendMesage : {
+    sendMessage : {
         type: MessageType,
         args: { 
-            userId: { type: GraphQLID },
+            acount: { type: GraphQLString },
             text: { type: GraphQLString },
-            time: { type: GraphQLInt }
+            time: { type: GraphQLString }
         },
-        resolve(parentValue, { userId, text, time }) {
-            return user.addMessage(userId, text, time);
+        resolve(parentValue, { acount, text, time }) {
+            return user.addMessage(acount, text, time);
         }
     },
     receiveNewMessage: {
@@ -43,7 +43,7 @@ const userMutation = {
         args: {
             userId: { type: GraphQLID },
             text: { type: GraphQLString },
-            time: { type: GraphQLInt }
+            time: { type: GraphQLString }
         },
         resolve(parentValue, { userId, text, time }) {
             return user.addReceiveMessage(userId, text, time);

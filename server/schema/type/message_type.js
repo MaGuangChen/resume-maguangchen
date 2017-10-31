@@ -3,20 +3,21 @@ const graphql = require('graphql');
 const {
   GraphQLObjectType,
   GraphQLString,
-  GraphQLInt
+  GraphQLID
 } = graphql;
 
-const Message = mongoose.model('message');
+const message = mongoose.model('message');
 
 const MessageType = new GraphQLObjectType({
   name: 'MessageType',
   fields: () => ({
+    id: { type: GraphQLID },
     text: { type: GraphQLString },
-    time: { type: GraphQLInt },
+    time: { type: GraphQLString },
     user: { 
       type: require('./user_type'),
       resolve(parentValue){
-        return Message.findById(parentValue).populate('user')
+        return message.findById(parentValue).populate('user')
           .then((message) => {
             return message.user;
           });
