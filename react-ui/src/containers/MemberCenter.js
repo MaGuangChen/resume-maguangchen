@@ -2,13 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { graphql } from 'react-apollo';
 
+import Spiner from '../components/memberCenter/Spiner';
 import CompanyInfo from '../components/memberCenter/CompanyInfo';
 import Message from '../components/base/Message';
 
 import fetchUser from '../queries/fetchUser';
 
 const MemberCenter = (props) => {
-    console.log(props.data);
     const currentId = localStorage.getItem('currentUserId');
     window.addEventListener("load", function check(){
         if(currentId) {
@@ -17,19 +17,13 @@ const MemberCenter = (props) => {
             window.location.href = '/';
         }
     });
-    const spiner = (
-        <div className="member-center">
-            <div className="member-center_loading">
-                Loading ...
-                <i className="fa fa-spinner" aria-hidden="true"></i>
-            </div>
-        </div>
-    )
 
-    let sussced = <div></div>;
-    if(!props.data.loading){
-        const user = props.data.user;
-        sussced = (
+    const { user, loading } = props.data;
+    
+    return (
+      <div>
+        { loading && <Spiner /> }
+        { !loading && 
             <div className="member-center">
                 <div className="member-center_greeting">
                     Hi! {user.acount}
@@ -39,13 +33,7 @@ const MemberCenter = (props) => {
                 </div>
                 {/* <Message /> */}
             </div> 
-        );
-    }
-    
-    return (
-      <div>
-        { props.data.loading && spiner }
-        { !props.data.loading && sussced }
+        }
       </div>  
     );
 }

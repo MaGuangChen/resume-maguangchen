@@ -191,13 +191,13 @@ export const menuReducer = (state = menuStatus, action) => {
 }
 
 const userPageEditingStatus = {
-    position: false,
-    reservationDate: false,
-    salary: false,
-    location: false,
-    phone: false,
-    contactPeople: false,
-    eMail: false,
+    position: '',
+    reservationDate: '',
+    salary: '',
+    location: '',
+    phone: '',
+    contactPeople: '',
+    eMail: '',
 }
 export const userPageEditingReducer = (
   state = userPageEditingStatus, 

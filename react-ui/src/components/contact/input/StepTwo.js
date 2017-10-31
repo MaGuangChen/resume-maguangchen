@@ -51,7 +51,7 @@ const StepTwo = (props) => {
                 month={month}
                 date={date}
                 timeSelectStatus={timeSelectStatus}
-                showCalendar={showCalendar}                   
+                showCalendar={showCalendar}
                 />}
             </div>
             <div className="contact_input_timeNsalary">

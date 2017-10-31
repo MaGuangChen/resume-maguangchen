@@ -1,7 +1,8 @@
 .member-center {
   background: linear-gradient(to right, #fc5c7d, #6a82fb);
   color: white;
-  text-align: center; }
+  text-align: center;
+  overflow: hidden; }
   .member-center_loading {
     padding: 25px;
     background: rgba(0, 0, 0, 0.5);
@@ -10,6 +11,7 @@
     margin: 25%; }
   .member-center_greeting {
     font-size: 3rem;
+    width: 100%;
     padding: 25px;
     background: rgba(0, 0, 0, 0.5);
     text-shadow: 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 15px #fff, 0px 0px 3px #fff; }
@@ -50,6 +52,38 @@
         .member-center_companyArea_block_content_text {
           width: 65%;
           box-shadow: 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 15px #fff, 0px 0px 3px #fff; }
+        .member-center_companyArea_block_content_input {
+          display: inline-block;
+          width: 65%;
+          border-bottom: 1px solid; }
+          .member-center_companyArea_block_content_input_button {
+            display: inline-block;
+            box-shadow: 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 15px #fff, 0px 0px 3px #fff;
+            padding: 1rem;
+            width: 30%;
+            cursor: pointer; }
+            .member-center_companyArea_block_content_input_button:hover {
+              text-shadow: 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 15px #fff, 0px 0px 3px #fff;
+              box-shadow: 0 0 15px #fff;
+              background: rgba(255, 255, 255, 0.1); }
+          .member-center_companyArea_block_content_input input {
+            width: 70%;
+            background: none;
+            outline: none;
+            color: white;
+            border: none; }
+            .member-center_companyArea_block_content_input input::-webkit-input-placeholder {
+              color: white;
+              opacity: 0.7; }
+            .member-center_companyArea_block_content_input input:-moz-placeholder {
+              color: white;
+              opacity: 0.7; }
+            .member-center_companyArea_block_content_input input::-moz-placeholder {
+              color: white;
+              opacity: 0.7; }
+            .member-center_companyArea_block_content_input input:-ms-input-placeholder {
+              color: white;
+              opacity: 0.7; }
         .member-center_companyArea_block_content_message {
           margin-top: 1rem;
           font-weight: 600;

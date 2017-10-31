@@ -18,6 +18,9 @@ const TimePeriod = (props) => {
   const submitSelectTime = () => {
     dispatch(actions.handleCalendar(false));
     dispatch(actions.handleSubmitSelectedTime(true));
+    if(props.page === 'user'){
+      props.handleReservationDate();
+    }
   }
     const hourArray = ['10', '11', '12', '13', '14', '15', '16', '17', '18'];
     const minutes = ['00', '30'];

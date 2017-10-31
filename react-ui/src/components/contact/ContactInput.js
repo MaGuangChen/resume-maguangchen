@@ -86,7 +86,8 @@ class ContactInput extends Component {
         const { name, position, salary } = companyInfo;
         const minSalary = salary[0];
         const maxSalary = salary[1];
-        const timeArray = [year, month, date.date(), hour, minute];
+        const minuteParse = minute === '00' ? 0 : minute;
+        const timeArray = [year, month, date.date(), hour, minuteParse];
         const reservationDate = `[${timeArray}]`;
         const { currentAcount, currentId } = this.state;
         if(name.length > 0 && position.length > 0 
