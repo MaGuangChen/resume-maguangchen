@@ -25,6 +25,7 @@ const Login = (props) => {
         if(user){
             if(user.length === 1) {
                 localStorage.setItem('currentUserId', user[0].id);
+                localStorage.setItem('currentUserAcount', user[0].acount);
                 dispatch(actions.setCurrentUser(user[0].id));
                 dispatch(actions.showMenu(false));
                 dispatch(actions.showLogin(false));

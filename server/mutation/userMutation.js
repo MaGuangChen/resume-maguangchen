@@ -5,8 +5,6 @@ const mongoose = require('mongoose');
 
 const user = mongoose.model('user');
 const UserType =  require('../schema/type/user_type');
-const MessageType = require('../schema/type/message_type');
-const ReceiveMessageType = require('../schema/type/receiveMessage_type');
 const CompanyType =  require('../schema/type/company_type');
 
 const userMutation = {
@@ -25,28 +23,6 @@ const userMutation = {
         args: { id: { type:  GraphQLID } },
         resolve(parentValue, { id }){
             return user.remove({ _id: id });
-        }
-    },
-    sendMessage : {
-        type: MessageType,
-        args: { 
-            acount: { type: GraphQLString },
-            text: { type: GraphQLString },
-            time: { type: GraphQLString }
-        },
-        resolve(parentValue, { acount, text, time }) {
-            return user.addMessage(acount, text, time);
-        }
-    },
-    receiveNewMessage: {
-        type: ReceiveMessageType,
-        args: {
-            userId: { type: GraphQLID },
-            text: { type: GraphQLString },
-            time: { type: GraphQLString }
-        },
-        resolve(parentValue, { userId, text, time }) {
-            return user.addReceiveMessage(userId, text, time);
         }
     },
     addCompanyToUser:  {

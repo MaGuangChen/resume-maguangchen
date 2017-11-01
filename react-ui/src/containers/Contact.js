@@ -1,10 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-// import { graphql } from 'react-apollo';
-// import { compose } from 'react-apollo';
-// import * as actions from './actions/actions';
-
 import ContactInput from '../components/contact/ContactInput';
 
 const Contact = (props) => {

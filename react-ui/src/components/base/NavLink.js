@@ -19,6 +19,7 @@ const NavLink = (props) => {
     }
     const removeCurrentUserId = () => {
         localStorage.removeItem('currentUserId');
+        localStorage.removeItem('currentUserAcount');
         dispatch(actions.showMenu(false));
         dispatch(actions.loginStatus(false));
         dispatch(actions.showLogoutSussced(true));

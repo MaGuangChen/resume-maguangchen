@@ -8,6 +8,7 @@ import * as actions from '../../actions/actions';
 import fetchUsers from '../../queries/fetchUsers';
 import signUpMutation from '../../mutations/singup';
 import addCompanyMutation from '../../mutations/addCompany';
+import addUserMessageMutation from '../../mutations/addUserMessage';
 
 import StepOne from './input/StepOne';
 import StepTwo from './input/StepTwo';
@@ -40,6 +41,7 @@ class ContactInput extends Component {
                 const currentUser = users.filter(u => u.acount === currentAcount);    
                 this.setState({ currentId: currentUser[0].id });
                 localStorage.setItem('currentUserId', currentUser[0].id);
+                localStorage.setItem('currentUserAcount', currentUser[0].acount);
             }
         }
     }
@@ -100,6 +102,11 @@ class ContactInput extends Component {
                     reservationDate,
                     minSalary,
                     maxSalary
+                }
+            })
+            this.props.addUserMessageMutate({
+                variables: {
+                    userAcount: currentAcount
                 }
             })
             dispatch(actions.loginStatus(true));
@@ -163,6 +170,7 @@ class ContactInput extends Component {
 const componentWithGraphQL = compose(
     graphql(signUpMutation, { name: 'signupMutate' }),
     graphql(addCompanyMutation, { name: 'addCompanyMutate' }),
+    graphql(addUserMessageMutation, { name: 'addUserMessageMutate'}),
     graphql(fetchUsers)
   )(ContactInput);
 

@@ -17,14 +17,6 @@ export default gql`
                 maxSalary
                 reservationDate
             }
-            message {
-                text
-                time
-            }
-            receiveMessage {
-                text
-                time
-            }    
         }
     }
 `;

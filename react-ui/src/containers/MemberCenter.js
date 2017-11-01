@@ -5,10 +5,9 @@ import { compose } from 'react-apollo';
 
 import Spiner from '../components/memberCenter/Spiner';
 import CompanyInfo from '../components/memberCenter/CompanyInfo';
-import Message from '../components/base/Message';
-
-import message from '../mutations/message';
+import MessagePending from '../components/memberCenter/MessagePending';
 import fetchUser from '../queries/fetchUser';
+
 
 const MemberCenter = (props) => {
     const currentId = localStorage.getItem('currentUserId');
@@ -23,24 +22,6 @@ const MemberCenter = (props) => {
     const { user, loading } = props.data;
     const { showMessage, userInputMessage } = props.message;
 
-    const handleMessageMutate = () => {
-        const text = "userInputMessage";
-        const time = "[2017,10,31,10,20]"
-        props.sendMessage({
-            vaiables: {
-                acount: "kwn791122@gmail.com",
-                text,
-                time
-            }
-        })
-        .catch((res) => {
-            const errors = res.graphQLErrors.map((error) => {
-              return error;
-            });
-            console.log(errors[0].message);
-          });
-    }
-
     return (
       <div>
         { loading && <Spiner /> }
@@ -52,14 +33,11 @@ const MemberCenter = (props) => {
                 <div className="member-center_companyArea">
                     <CompanyInfo user={user}/>
                 </div>
-                { showMessage && 
-                <Message 
-                    id={user.id}
-                    message={user.message}
-                    receiveMessage={user.receiveMessage}
+                { showMessage &&
+                <MessagePending
+                    acount={user.acount}
                     showMessage={showMessage}
                     userInputMessage={userInputMessage}
-                    handleMessageMutate={handleMessageMutate}
                 /> 
                 }
             </div> 
@@ -69,22 +47,26 @@ const MemberCenter = (props) => {
 }
 
 const currentId = localStorage.getItem('currentUserId');
-// const memberCenterWithGraphQL = graphql(fetchUser, { 
-//     options: { 
-//       variables: { id: currentId } }
-//     }, { name: "user" } )(MemberCenter);
 
 const memberCenterWithGraphQL = compose(
     graphql(fetchUser, { 
-        options: { 
-        variables: { id: currentId } }
-        }, { name: "user" } 
-    ),
-    graphql(message, { name: 'sendMessage'}),
+        options: { variables: { id: currentId } } }, 
+        { name: "user" }),
 )(MemberCenter);
+
 export default connect((state) => {
   return { 
       login: state.login,
       message: state.message 
     }
 })(memberCenterWithGraphQL);
+
+
+{/* <Message 
+                    acount={user.acount}
+                    message={sendMessage}
+                    receiveMessage={receiveMessage}
+                    showMessage={showMessage}
+                    userInputMessage={userInputMessage}
+                    // handleMessageMutate={handleMessageMutate}
+                />  */}

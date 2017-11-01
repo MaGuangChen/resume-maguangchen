@@ -4,9 +4,9 @@ const mongoose = require('mongoose');
 
 const userMutation = require('../mutation/userMutation');
 const companyMutation = require('../mutation/companyMutation');
+const messageMutation = require('../mutation/messageMutation');
 
-const { addUser, deleteUser, receiveNewMessage, sendMessage, 
-	addCompanyToUser } = userMutation;
+const { addUser, deleteUser, addCompanyToUser } = userMutation;
 
 const { editCompanyName, editCompanyPosition, 
 	editCompanyLocation, editCompanyPhoneNumber, 
@@ -14,24 +14,26 @@ const { editCompanyName, editCompanyPosition,
 	editMinSalary, editMaxSalary, editReserVationDate,
 	deleteCompany } = companyMutation;
 
+const { addUserMessage, addMessageToUserMessage } = messageMutation;
+
 const mutation = new GraphQLObjectType({
   name: 'Mutation',
   fields: {
 		addUser: addUser,
 		deleteUser: deleteUser,
-	  sendMessage : sendMessage,
-		receiveNewMessage: receiveNewMessage,
-	  addCompanyToUser: addCompanyToUser,
-	  deleteCompany: deleteCompany,
-	  editCompanyName: editCompanyName,
-	  editCompanyPosition: editCompanyPosition,
-	  editCompanyLocation: editCompanyLocation,
-	  editCompanyPhoneNumber: editCompanyPhoneNumber,
-	  editCompanyContactPeople: editCompanyContactPeople,
+	  	addCompanyToUser: addCompanyToUser,
+	  	deleteCompany: deleteCompany,
+	 	 editCompanyName: editCompanyName,
+	  	editCompanyPosition: editCompanyPosition,
+	  	editCompanyLocation: editCompanyLocation,
+	  	editCompanyPhoneNumber: editCompanyPhoneNumber,
+	  	editCompanyContactPeople: editCompanyContactPeople,
 		editCompanyEmail: editCompanyEmail,
 		editMinSalary: editMinSalary,
 		editMaxSalary: editMaxSalary,
 		editReserVationDate: editReserVationDate,
+		addUserMessage: addUserMessage,
+		addMessageToUserMessage: addMessageToUserMessage
   }
 });
 
