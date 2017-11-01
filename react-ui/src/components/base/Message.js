@@ -19,25 +19,37 @@ class Message extends Component {
             allMessageDom: [],
             fetch: false, 
         }
-        this.keepRefetchMessage = this.keepRefetchMessage.bind(this);
+        // this.keepRefetchMessage = this.keepRefetchMessage.bind(this);
     }
+    // componentDidMount(){
+    //     this.keepRefetchMessage();
+    // }
+    // componentWillUnmount(){
+    //     clearInterval(this.timer);
+    //     this.timer = undefined;
+    // }
 
-    componentDidMount(){
-        this.keepRefetchMessage();
-    }
-    componentWillUnmount(){
-        clearInterval(this.timer);
-        this.timer = undefined;
-    }
-
-    keepRefetchMessage() {
-        this.timer = setInterval(() => {
-            this.props.data.refetch()
-            .then(()=> this.setState({ fetch: !this.state.fetch }));
-        }, 1500)  
-    }
+    // keepRefetchMessage() {
+    //     this.timer = setInterval(() => {
+    //         this.props.data.fetchMore({
+    //             query: fetchUserMessage,
+    //             variables: {
+    //                 userAcount: "kwn791122@gmail.com",
+    //             },
+    //             updateQuery: (previousResult, { fetchMoreResult, queryVariables }) => {
+    //                 return {
+    //                     userMessage: {
+    //                         ...previousResult.userMessage,
+    //                         message: fetchMoreResult.userMessage.message,
+    //                     }
+    //                 }
+    //             }
+    //         });
+    //     }, 5500)  
+    // }
 
     render() {
+        console.log(this.props.data);
         let { sendedMessage, receivedMessage, allMessage, allMessageDom } = this.state;
         if(!this.props.data.loading) {
             const sended = this.props.data.userMessage.message

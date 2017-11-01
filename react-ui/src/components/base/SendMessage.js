@@ -6,6 +6,7 @@ import moment from 'moment';
 
 import * as actions from '../../actions/actions';
 import sendMessageMutation from '../../mutations/sendMessage';
+import fetchUserMessage from '../../queries/fetchUserMessage';
 
 const SendMessage = (props) => {
     const { userInputMessage, userAcount } = props;
@@ -14,7 +15,7 @@ const SendMessage = (props) => {
         const text = e.target.value;
         props.dispatch(actions.userInputMessage(text));
     }
-
+    // console.log(moment().unix());
     const sendMessageMutate = () => {
         if(userInputMessage !== '') {
             props.sendMessage({
@@ -26,6 +27,10 @@ const SendMessage = (props) => {
                     sendToUserAcount: "kwn791122@gmail.com"
                 }
             })
+            .then(() => {
+                props.data.refetch();
+            });
+            props.dispatch(actions.userInputMessage(''));
         }
     }
 
@@ -40,6 +45,11 @@ const SendMessage = (props) => {
 }
 
 const SendMessageWithMutation = compose(
+    graphql(fetchUserMessage, { 
+        options: (props) => ({
+            variables: { userAcount: props.userAcount } 
+        }) 
+    },{ name: 'sendedMessage'}),
     graphql(sendMessageMutation, { name: 'sendMessage' }),
 )(SendMessage);
 
