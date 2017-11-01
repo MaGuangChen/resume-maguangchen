@@ -1,9 +1,17 @@
 import React from 'react';
 
 const LightBox = (props) => {
-    const { title, text, handleClose } = props; 
+    const { title, text, handleClose, page } = props; 
+    let changeStyle = {
+        position: 'fixed',
+    }
+    if(page === 'home'){
+        changeStyle = {
+            position: 'absolute',
+        }
+    }
     return (
-        <div className="light-box">
+        <div style={changeStyle} className="light-box">
             <div className="light-box_content">
                 <div className="light-box_title">
                 <p>{title}</p>

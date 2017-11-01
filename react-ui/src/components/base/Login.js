@@ -81,7 +81,16 @@ const Login = (props) => {
                     進入管理介面
                 </div>
                 <div className="login_submit_signup">
-                    <p>沒有帳號嗎?</p> <a>創建帳號</a>
+                    <p>沒有帳號嗎?</p> 
+                    <a 
+                    href="#to-contact"
+                    onClick={()=>{
+                        dispatch(actions.showLogin(false));
+                        dispatch(actions.showMenu(false));
+                    }}
+                    >
+                    創建帳號
+                    </a>
                 </div>
             </div>
         </div>

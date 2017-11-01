@@ -31,40 +31,42 @@ const StepTwo = (props) => {
 
     return (
         <div>
-            <div>
-                <label>*您的公司名稱與所需職位</label>
-                <i className="fa fa-university fa-2x" aria-hidden="true"></i> 
-                <input onChange={handleCompanyName} type="text" placeholder="輸入您的公司名稱" />
-            </div>
-            <div>
-                <i className="fa fa-user-circle-o fa-2x" aria-hidden="true"></i>
-                <input onChange={handleCompanyPosition} type="text" placeholder="輸入您所需求之職位" />
-            </div>
-            <label>*您方便的面試時間與預計的薪水區間</label>
-            <div className="contact_input_timeNsalary">
-                <i className="fa fa-calendar-check-o fa-2x" aria-hidden="true"></i>
-                <span className="contact_input_timeNsalary_time" 
-                onClick={handleShowCalendar}>{selectedInterviewTime}</span>
-                {showCalendar && 
-                <Calendar
-                year={year}
-                month={month}
-                date={date}
-                timeSelectStatus={timeSelectStatus}
-                showCalendar={showCalendar}
-                />}
-            </div>
-            <div className="contact_input_timeNsalary">
-                <Slider
-                minValue={40000}
-                maxValue={60000}
-                lowerValue={45000}
-                upperValue={48000}
-            />
-            </div>
-            <div onClick={props.addCompany} className="contact_input_submit">
-                確認提交<i className="fa fa-paper-plane-o" aria-hidden="true"></i>
-            </div>
+            { !props.step2Pending && <div>
+                <div>
+                    <label>*您的公司名稱與所需職位</label>
+                    <i className="fa fa-university fa-2x" aria-hidden="true"></i> 
+                    <input onChange={handleCompanyName} type="text" placeholder="輸入您的公司名稱" />
+                </div>
+                <div>
+                    <i className="fa fa-user-circle-o fa-2x" aria-hidden="true"></i>
+                    <input onChange={handleCompanyPosition} type="text" placeholder="輸入您所需求之職位" />
+                </div>
+                <label>*您方便的面試時間與預計的薪水區間</label>
+                <div className="contact_input_timeNsalary">
+                    <i className="fa fa-calendar-check-o fa-2x" aria-hidden="true"></i>
+                    <span className="contact_input_timeNsalary_time" 
+                    onClick={handleShowCalendar}>{selectedInterviewTime}</span>
+                    {showCalendar && 
+                    <Calendar
+                    year={year}
+                    month={month}
+                    date={date}
+                    timeSelectStatus={timeSelectStatus}
+                    showCalendar={showCalendar}
+                    />}
+                </div>
+                <div className="contact_input_timeNsalary">
+                    <Slider
+                    minValue={40000}
+                    maxValue={60000}
+                    lowerValue={45000}
+                    upperValue={48000}
+                />
+                </div>
+                <div onClick={props.addCompany} className="contact_input_submit">
+                    確認提交<i className="fa fa-paper-plane-o" aria-hidden="true"></i>
+                </div>
+            </div> }
     </div>   
     );
 }

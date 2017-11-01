@@ -25,6 +25,7 @@ const App = (props) => {
       const closeLoginSusscedLightBox = () => {
         dispatch(actions.showLoginSussced(false));
       }
+
       return (
         <div className="App">
           { showLogoutSussced && 
@@ -35,7 +36,7 @@ const App = (props) => {
             />
           }
           { showLoginSussced && 
-            <LightBox 
+            <LightBox
             title="登入成功" 
             text="歡迎使用"
             handleClose={closeLoginSusscedLightBox} 

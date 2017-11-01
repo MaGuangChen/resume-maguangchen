@@ -21,6 +21,7 @@ class ContactInput extends Component {
             currentId: null,
             currentAcount: null,
             step: 1,
+            step2Pending: false,
             showLightBox1: false,
             showLightBox2: false,
         }
@@ -39,7 +40,8 @@ class ContactInput extends Component {
         if(currentAcount){
             if(users){
                 const currentUser = users.filter(u => u.acount === currentAcount);    
-                this.setState({ currentId: currentUser[0].id });
+                this.setState({ currentId: currentUser[0].id, step2Pending: false });
+                
                 localStorage.setItem('currentUserId', currentUser[0].id);
                 localStorage.setItem('currentUserAcount', currentUser[0].acount);
             }
@@ -71,6 +73,7 @@ class ContactInput extends Component {
             } else if(checking.length > 0){
                 this.setState({ showLightBox1: true });
             }
+
             if(checkAcountStatus){
                 this.props.signupMutate({
                     variables: { acount, password },
@@ -78,7 +81,7 @@ class ContactInput extends Component {
                 .then(() => {
                     this.props.data.refetch()
                 })
-                this.setState({ currentAcount: acount, step: 2 });
+                this.setState({ currentAcount: acount, step: 2, step2Pending: true });
             }
         }
     }
@@ -110,6 +113,8 @@ class ContactInput extends Component {
                 }
             })
             dispatch(actions.loginStatus(true));
+            dispatch(actions.showLoginSussced(true));
+            window.location.href='/user';
         } else {
             this.setState({ showLightBox2: true });
         }
@@ -129,7 +134,7 @@ class ContactInput extends Component {
 
         const step1Active = this.state.step === 1 ? 'contact_step_active' : '';
         const step2Active = this.state.step === 2 ? 'contact_step_active' : ''; 
-
+       
         return (
             <div className="contact_input">
                 <div className="contact_step">
@@ -138,7 +143,8 @@ class ContactInput extends Component {
                 </div>
                 { this.state.step === 1 &&
                 <div>
-                    { this.state.showLightBox1 && <LightBox 
+                    { this.state.showLightBox1 && <LightBox
+                        page='home' 
                         title="創建帳號失敗"
                         text="您好，創建帳號失敗的原因可能是您曾申請過帳號，或是您所輸入的帳號不是有效的e-mail信箱"
                         handleClose={this.handleCloseLightBox1}
@@ -149,12 +155,14 @@ class ContactInput extends Component {
                 
                 { this.state.step === 2 && 
                 <div>
-                    { this.state.showLightBox2 && <LightBox 
+                    { this.state.showLightBox2 && <LightBox
+                        page='home' 
                         title="新增失敗"
                         text="您好，新增公司資訊失敗的原因可能是您未輸入欄位中的值，或是帳號正在創建中，如您確認欄位輸入值無誤，請你在兩秒後再次點擊確認送出"
                         handleClose={this.handleCloseLightBox2}
                     /> } 
                     <StepTwo
+                    step2Pending={this.state.step2Pending}
                     year={year} month={month} date={date} hour={hour} minute={minute}
                     showCalendar={showCalendar} 
                     submitSelectedTime={submitSelectedTime}

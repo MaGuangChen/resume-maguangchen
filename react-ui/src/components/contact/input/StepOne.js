@@ -12,6 +12,9 @@ const StepOne = (props) => {
         const password = e.target.value;
         dispatch(actions.createPassword(password));
     }
+    const showLoginBox = () => {
+        dispatch(actions.showLogin(true));
+    }
 
     return (
         <div>
@@ -27,7 +30,7 @@ const StepOne = (props) => {
             <div onClick={props.handleCreateAcount} className="contact_input_submit contact_input_sign-up">
             創辦帳號並繼續填寫<i className="fa fa-address-book-o fa-2x" aria-hidden="true"></i>
             </div>
-            <div onClick={props.handleCreateAcount} className="contact_input_submit contact_input_login">
+            <div onClick={showLoginBox} className="contact_input_submit contact_input_login">
             已有帳號直接登入
             </div>
             下一步開始填寫您的公司資料與所需職位
