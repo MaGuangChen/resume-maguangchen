@@ -6,7 +6,7 @@
   width: 60%;
   text-align: center;
   top: 5%;
-  z-index: 3;
+  z-index: 4;
   box-shadow: 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 15px #fff, 0px 0px 3px #fff;
   padding: 1rem; }
   .login_title {

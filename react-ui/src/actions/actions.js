@@ -172,3 +172,10 @@ export const userInputMessage = (text) => {
 		text
 	}
 }
+
+// export const showMessageOnHomePage = (status) => {
+// 	return {
+// 		type: 'SHOW_MESSAGE_ON_HOME_PAGE',
+// 		status
+// 	}
+// }

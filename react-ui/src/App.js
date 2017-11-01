@@ -9,6 +9,7 @@ import Portifolio from './containers/Portifolio';
 import Login from './components/base/Login';
 import NavgationBar from './containers/NavgationBar';
 import LightBox from './components/base/LightBox';
+import MessageBox from './components/base/MessageBox';
 import fetchUsers from './queries/fetchUsers';
 import * as actions from './actions/actions'
 
@@ -54,6 +55,7 @@ const App = (props) => {
           <About />
           <Portifolio />
           { currentId === null && !login.login && <Contact /> }
+          <MessageBox />
         </div>
       );      
 }

@@ -19,34 +19,7 @@ class Message extends Component {
             allMessageDom: [],
             fetch: false, 
         }
-        // this.keepRefetchMessage = this.keepRefetchMessage.bind(this);
     }
-    // componentDidMount(){
-    //     this.keepRefetchMessage();
-    // }
-    // componentWillUnmount(){
-    //     clearInterval(this.timer);
-    //     this.timer = undefined;
-    // }
-
-    // keepRefetchMessage() {
-    //     this.timer = setInterval(() => {
-    //         this.props.data.fetchMore({
-    //             query: fetchUserMessage,
-    //             variables: {
-    //                 userAcount: "kwn791122@gmail.com",
-    //             },
-    //             updateQuery: (previousResult, { fetchMoreResult, queryVariables }) => {
-    //                 return {
-    //                     userMessage: {
-    //                         ...previousResult.userMessage,
-    //                         message: fetchMoreResult.userMessage.message,
-    //                     }
-    //                 }
-    //             }
-    //         });
-    //     }, 5500)  
-    // }
 
     render() {
         console.log(this.props.data);

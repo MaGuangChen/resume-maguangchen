@@ -56,17 +56,6 @@ const memberCenterWithGraphQL = compose(
 
 export default connect((state) => {
   return { 
-      login: state.login,
       message: state.message 
     }
 })(memberCenterWithGraphQL);
-
-
-{/* <Message 
-                    acount={user.acount}
-                    message={sendMessage}
-                    receiveMessage={receiveMessage}
-                    showMessage={showMessage}
-                    userInputMessage={userInputMessage}
-                    // handleMessageMutate={handleMessageMutate}
-                />  */}

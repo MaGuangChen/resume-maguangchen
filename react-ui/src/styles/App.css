@@ -732,7 +732,7 @@
   width: 60%;
   text-align: center;
   top: 5%;
-  z-index: 3;
+  z-index: 4;
   box-shadow: 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 15px #fff, 0px 0px 3px #fff;
   padding: 1rem; }
   .login_title {
@@ -941,6 +941,26 @@
     margin: 0 10% 0 10%;
     width: 80%; } }
 
+.message-box {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  position: fixed;
+  border: 1px solid;
+  z-index: 3;
+  top: 5%;
+  right: 22%;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  padding: 10px;
+  box-shadow: 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 15px #fff, 0px 0px 3px #fff; }
+  .message-box:hover {
+    background: rgba(0, 0, 0, 0.2);
+    text-shadow: 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 15px #fff, 0px 0px 3px #fff;
+    box-shadow: 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 15px #fff, 0px 0px 3px #fff; }
+
 .navgation-bar {
   text-align: center; }
   .navgation-bar_icon {
@@ -957,6 +977,7 @@
     border-radius: 25px;
     cursor: pointer; }
     .navgation-bar_icon:hover {
+      background: rgba(0, 0, 0, 0.2);
       text-shadow: 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 15px #fff, 0px 0px 3px #fff;
       box-shadow: 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 15px #fff, 0px 0px 3px #fff; }
   .navgation-bar_content {

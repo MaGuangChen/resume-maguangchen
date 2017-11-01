@@ -14,6 +14,7 @@
     border-radius: 25px;
     cursor: pointer; }
     .navgation-bar_icon:hover {
+      background: rgba(0, 0, 0, 0.2);
       text-shadow: 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 15px #fff, 0px 0px 3px #fff;
       box-shadow: 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff, 0px 0px 15px #fff, 0px 0px 3px #fff; }
   .navgation-bar_content {
